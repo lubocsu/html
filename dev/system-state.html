@@ -1,0 +1,268 @@
+<!DOCTYPE html><html class=split lang=en-US-x-hixie><script src=/link-fixup.js defer=""></script><meta charset=utf-8><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name=viewport><title>HTML Standard, Developer's Edition</title><meta content=#3c790a name=theme-color><link rel=icon href=https://resources.whatwg.org/logo.svg><script>
+   function toggleStatus(div) {
+     div.parentNode.classList.toggle('wrapped');
+   }
+  </script><style>
+   .status { min-height: 0.6em; font: 1em sans-serif; width: 9em; padding: 0.3em; position: absolute; z-index: 8; right: 0.3em; background: #EEE; color: black; box-shadow: 0 0 3px #999; overflow: hidden; margin: -2em 0 0 0; border-collapse: initial; border-spacing: initial; }
+   .status:hover { z-index: 9; }
+   .status:focus-within { z-index: 9; }
+   .status.wrapped > :not(input) { display: none; }
+   .status > input { position: absolute; left: 0; top: 0; width: 1em; height: 1em; border: none; background: transparent; padding: 0; margin: 0; }
+   .status > p { font-size: 0.6em; margin: 0; padding: 0; }
+   .status > p + p { padding-top: 0.5em; }
+   .status > p > strong { margin-left: 1.5em; }
+   .status > .support { display: block; }
+   .status > .support > span { padding: 0.2em 0; display: block; display: table; }
+   .status > .support > span.partial { color: #666666; filter: grayscale(50%); }
+   .status > .support > span.no { color: #CCCCCC; filter: grayscale(100%); }
+   .status > .support > span.no::before { opacity: 0.5; }
+   .status > .support > span:first-of-type { padding-top: 0.5em; }
+   .status > .support > span > span { padding: 0 0.5em; display: table-cell; vertical-align: top; }
+   .status > .support > span > span:first-child { width: 100%; }
+   .status > .support > span > span:last-child { width: 100%; white-space: pre; padding: 0; }
+   .status > .support > span::before { content: ' '; display: table-cell; min-width: 1.5em; height: 1.5em; background: no-repeat center center; background-size: contain; text-align: right; font-size: 0.75em; font-weight: bold; }
+   .status > .support > .and_chr::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .and_ff::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .and_uc::before { background-image: url(https://resources.whatwg.org/browser-logos/uc.png); } /* UC Browser for Android */
+   .status > .support > .android::before { background-image: url(https://resources.whatwg.org/browser-logos/android.svg); }
+   .status > .support > .bb::before { background-image: url(https://resources.whatwg.org/browser-logos/bb.jpg); } /* Blackberry Browser */
+   .status > .support > .chrome::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .edge::before { background-image: url(https://resources.whatwg.org/browser-logos/edge.svg); }
+   .status > .support > .firefox::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .ie::before { background-image: url(https://resources.whatwg.org/browser-logos/ie.png); }
+   .status > .support > .ie_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/ie-mobile.svg); }
+   .status > .support > .ios_saf::before { background-image: url(https://resources.whatwg.org/browser-logos/safari-ios.svg); }
+   .status > .support > .op_mini::before { background-image: url(https://resources.whatwg.org/browser-logos/opera-mini.png); }
+   .status > .support > .op_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .opera::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .safari::before { background-image: url(https://resources.whatwg.org/browser-logos/safari.png); }
+   .status > .support > .samsung::before { background-image: url(https://resources.whatwg.org/browser-logos/samsung.png); }
+   .status > .caniuse { text-align: right; font-style: italic; width: 100%; }
+   .status > .caniuse + p { margin-top: 0.5em; border-top: 1px solid silver; }
+
+   @media (max-width: 767px) {
+     .status { right: -9em; }
+   }
+  </style><link rel=stylesheet href=styles.css><body>
+  <script async="" src=search.js></script>
+  
+  
+  <header id=head class="head with-buttons">
+   <a href=https://whatwg.org/ class=logo><img alt=WHATWG src=https://resources.whatwg.org/logo.svg width=100 height=100></a>
+   
+   <hgroup><h1><a rel=home href=/dev/>HTML: The Living Standard</a></h1><h2 id="developer's-edition-—-last-updated-date:-01-jan-1901" class="no-num no-toc">Developer's Edition — Last Updated <span class=pubdate>20 May 2018</span></h2><div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Thu Apr 27 2017 20:05:51 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.zh.html></div></hgroup>
+   
+   <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-91053840-1', 'auto');
+      ga('send', 'pageview');
+   </script>
+  </header>
+
+  
+
+  
+
+  
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Mon Dec 05 2016 02:34:08 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/table-of-contents.zh.html></div>
+  
+
+  
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Sat Jul 22 2017 01:54:48 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/full-table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/full-table-of-contents.zh.html></div>
+  
+
+  
+
+  
+
+  <h2 id=about-dev-edition class="no-num no-toc">关于本标准</h2>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Sat Jul 22 2017 01:54:48 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/about-this-specification.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/about-this-specification.zh.html></div>
+
+  <p>本标准与其他标准不同，它的处理完全考虑到了 Web 开发者。</p>
+
+  <p>本标准关注可读性和可访问性，不像 <a href=/multipage/>完整的 HTML 标准</a>，"开发者版本" 移除了
+  只有浏览器厂商需要知道的信息。它个版本是用我们的构建工具从完整的规范自动产出的，
+  因此总会与最新开发的 HTML 保持同步。</p>
+
+  <p>其概念、构造，以及未来可参考 <a href=http://web.archive.org/web/20150220020906/http://archive.germanforblack.com:80/articles/html5-for-web-developers>
+  原始出版发行</a>，以及 <a href=https://blog.whatwg.org/developers-edition-comeback>关于重启该版本的博文</a>。</p>
+
+  <p>最后，欢迎 <a href=https://github.com/whatwg/html/labels/dev%20edition>在 GitHub 贡献</a> 来改进该版本！</p>
+
+  
+
+  <nav><a href=timers-and-user-prompts.html>← 8.5 Timers</a> — <a href=./>Table of Contents</a> — <a href=imagebitmap-and-animations.html>8.8 Images →</a></nav><ol class=toc><li><ol><li><a href=system-state.html#system-state-and-capabilities><span class=secno>8.7</span> System state and capabilities</a><ol><li><a href=system-state.html#the-navigator-object><span class=secno>8.7.1</span> The <code>Navigator</code> object</a><ol><li><a href=system-state.html#client-identification><span class=secno>8.7.1.1</span> Client identification</a><li><a href=system-state.html#language-preferences><span class=secno>8.7.1.2</span> Language preferences</a><li><a href=system-state.html#custom-handlers><span class=secno>8.7.1.3</span> Custom scheme handlers: the <code>registerProtocolHandler()</code> method</a><li><a href=system-state.html#cookies><span class=secno>8.7.1.4</span> Cookies</a><li><a href=system-state.html#plugins><span class=secno>8.7.1.5</span> Plugins</a></ol></ol></ol></ol><h3 id=system-state-and-capabilities><span class=secno>8.7</span> System state and capabilities<a href=#system-state-and-capabilities class=self-link></a></h3>
+<div data-en-date="Mon Jun 12 2017 23:29:06 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-application-apis/system-state-and-capabilities/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-application-apis/system-state-and-capabilities/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-application-apis%2Fsystem-state-and-capabilities%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <h4 id=the-navigator-object><span class=secno>8.7.1</span> The <code>Navigator</code> object<a href=#the-navigator-object class=self-link></a></h4>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-application-apis%2Fsystem-state-and-capabilities%2Fthe-navigator-object%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  
+
+
+
+  
+
+
+  <h5 id=client-identification><span class=secno>8.7.1.1</span> Client identification<a href=#client-identification class=self-link></a></h5>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/client-identification.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/client-identification.zh.html?filename=client-identification.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-application-apis%2Fsystem-state-and-capabilities%2Fthe-navigator-object%2Fclient-identification.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <p>In certain cases, despite the best efforts of the entire industry, Web browsers have bugs and
+  limitations that Web authors are forced to work around.</p>
+
+  <p>This section defines a collection of attributes that can be used to determine, from script, the
+  kind of user agent in use, in order to work around these issues.</p>
+
+  
+
+  <p>Client detection should always be limited to detecting known current versions; future versions
+  and unknown versions should always be assumed to be fully compliant.</p>
+
+  <dl class=domintro><dt><var>self</var> . <code>navigator</code> . <code id=dom-navigator-appcodename>appCodeName</code><dd><p>Returns the string "<code>Mozilla</code>".<dt><var>self</var> . <code>navigator</code> . <code id=dom-navigator-appname>appName</code><dd><p>Returns the string "<code>Netscape</code>".<dt><var>self</var> . <code>navigator</code> . <code id=dom-navigator-appversion>appVersion</code><dd><p>Returns the version of the browser.<dt><var>self</var> . <code>navigator</code> . <code id=dom-navigator-platform>platform</code><dd><p>Returns the name of the platform.<dt><var>self</var> . <code>navigator</code> . <code id=dom-navigator-product>product</code><dd><p>Returns the string "<code>Gecko</code>".<dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-productsub>productSub</code><dd><p>Returns either the string "<code>20030107</code>", or the string "<code>20100101</code>".<dt><var>self</var> . <code>navigator</code> . <code id=dom-navigator-useragent>userAgent</code><dd><p>Returns the complete `<code>User-Agent</code>` header.<dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-vendor>vendor</code><dd><p>Returns either the empty string, the string "<code>Apple Computer, Inc.</code>",
+   or the string "<code>Google Inc.</code>".<dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-vendorsub>vendorSub</code><dd><p>Returns the empty string.</dl>
+
+  
+
+  
+
+  <h5 id=language-preferences><span class=secno>8.7.1.2</span> Language preferences<a href=#language-preferences class=self-link></a></h5>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/language-preferences.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/language-preferences.zh.html?filename=language-preferences.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-application-apis%2Fsystem-state-and-capabilities%2Fthe-navigator-object%2Flanguage-preferences.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <dl class=domintro><dt><var>self</var> . <code>navigator</code> . <code id=dom-navigator-language>language</code><dd><p>Returns a language tag representing the user's preferred language.<dt><var>self</var> . <code>navigator</code> . <code id=dom-navigator-languages>languages</code><dd>
+    <p>Returns an array of language tags representing the user's preferred languages, with the most
+    preferred language first.</p>
+
+    <p>The most preferred language is the one returned by <code id=language-preferences:dom-navigator-language><a href=#dom-navigator-language>navigator.language</a></code>.</p>
+   </dl>
+
+  <p class=note>A <code id=language-preferences:event-languagechange><a href=indices.html#event-languagechange>languagechange</a></code> event is fired at the
+  <code>Window</code> or <code>WorkerGlobalScope</code> object when the user agent's understanding
+  of what the user's preferred languages are changes.</p>
+
+  
+
+
+
+  <h5 id=custom-handlers><span class=secno>8.7.1.3</span> Custom scheme handlers: the <code id=custom-handlers:dom-navigator-registerprotocolhandler><a href=#dom-navigator-registerprotocolhandler>registerProtocolHandler()</a></code> method<a href=#custom-handlers class=self-link></a></h5><div class=status><input onclick=toggleStatus(this) value=⋰ type=button><p class=support><strong>Support:</strong> registerprotocolhandler<span class="and_chr no"><span>Chrome for Android</span> <span>None</span></span><span class="chrome yes"><span>Chrome</span> <span>13+</span></span><span class="ios_saf no"><span>iOS Safari</span> <span>None</span></span><span class="and_uc no"><span>UC Browser for Android</span> <span>None</span></span><span class="firefox yes"><span>Firefox</span> <span>3+</span></span><span class="ie no"><span>IE</span> <span>None</span></span><span class="samsung no"><span>Samsung Internet</span> <span>None</span></span><span class="op_mini no"><span>Opera Mini</span> <span>None</span></span><span class="safari no"><span>Safari</span> <span>None</span></span><span class="edge no"><span>Edge</span> <span>None</span></span><span class="android no"><span>Android Browser</span> <span>None</span></span><span class="opera yes"><span>Opera</span> <span>11.6+</span></span><p class=caniuse>Source: <a href="https://caniuse.com/#feat=registerprotocolhandler">caniuse.com</a></div>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/custom-scheme-handlers-the-registerprotocolhandler-method/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/custom-scheme-handlers-the-registerprotocolhandler-method/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-application-apis%2Fsystem-state-and-capabilities%2Fthe-navigator-object%2Fcustom-scheme-handlers-the-registerprotocolhandler-method%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <p>The <dfn id=dom-navigator-registerprotocolhandler><code>registerProtocolHandler()</code></dfn> method
+  allows Web sites to register themselves as possible handlers for particular schemes. For example,
+  an online telephone messaging service could register itself as a handler of the <code id=custom-handlers:sms-protocol><a data-x-internal=sms-protocol href=https://tools.ietf.org/html/rfc5724#section-2>sms:</a></code> scheme, so that if the user clicks on such a link, they are given the
+  opportunity to use that web site. <a href=references.html#refsSMS>[SMS]</a></p>
+
+  <dl class=domintro><dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-registerprotocolhandler-2><a href=#dom-navigator-registerprotocolhandler>registerProtocolHandler</a></code>(<var>scheme</var>, <var>url</var>, <var>title</var>)<dd>
+    <p>Registers a handler for the given scheme, at the given URL, with the given title.</p>
+
+    <p>The string "<code>%s</code>" in the URL is used as a placeholder for where to put
+    the URL of the content to be handled.</p>
+
+    <p>Throws a <a id=custom-handlers:securityerror href=https://heycam.github.io/webidl/#securityerror data-x-internal=securityerror>"<code>SecurityError</code>"</a> <code id=custom-handlers:domexception><a data-x-internal=domexception href=https://heycam.github.io/webidl/#dfn-DOMException>DOMException</a></code> if the user
+    agent blocks the registration (this might happen if trying to register as a handler for "http",
+    for instance).</p>
+
+    <p>Throws a <a id=custom-handlers:syntaxerror href=https://heycam.github.io/webidl/#syntaxerror data-x-internal=syntaxerror>"<code>SyntaxError</code>"</a> <code id=custom-handlers:domexception-2><a data-x-internal=domexception href=https://heycam.github.io/webidl/#dfn-DOMException>DOMException</a></code> if the "<code>%s</code>" string is missing in the URL.</p>
+   </dl>
+
+  
+
+  <p>In addition to the registration method, there is also a method for unregistering handlers.</p>
+
+  <dl class=domintro><dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-unregisterprotocolhandler>unregisterProtocolHandler</code>(<var>scheme</var>, <var>url</var>)<dd>
+
+    <p>Unregisters the handler given by the arguments.</p>
+
+   </dl>
+
+  
+
+
+
+
+  
+
+
+
+  <h5 id=cookies><span class=secno>8.7.1.4</span> Cookies<a href=#cookies class=self-link></a></h5>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/cookies.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/cookies.zh.html?filename=cookies.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-application-apis%2Fsystem-state-and-capabilities%2Fthe-navigator-object%2Fcookies.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <dl class=domintro><dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-cookieenabled>cookieEnabled</code><dd>
+
+    <p>Returns false if setting a cookie will be ignored, and true otherwise.</p>
+
+   </dl>
+
+  
+
+
+
+  <h5 id=plugins><span class=secno>8.7.1.5</span> Plugins<a href=#plugins class=self-link></a></h5>
+<div data-en-date="Sun Feb 25 2018 22:54:16 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/plugins.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/web-application-apis/system-state-and-capabilities/the-navigator-object/plugins.zh.html?filename=plugins.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fweb-application-apis%2Fsystem-state-and-capabilities%2Fthe-navigator-object%2Fplugins.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <dl class=domintro><dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-plugins>plugins</code> . <code id=dom-pluginarray-refresh>refresh</code>( [ <var>refresh</var> ] )<dd>
+    <p>Updates the lists of supported plugins and MIME types for this page, and reloads the page if the lists have changed.</p>
+    
+   <dt><var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-plugins><a href=#dom-navigator-plugins>plugins</a></code> . <code id=dom-pluginarray-length>length</code><dd>
+    <p>Returns the number of plugins, represented by <code>Plugin</code> objects, that the user agent reports.</p>
+   <dt><var>plugin</var> = <var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-plugins-2><a href=#dom-navigator-plugins>plugins</a></code> . <code id=dom-pluginarray-item>item</code>(<var>index</var>)<dt><var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-plugins-3><a href=#dom-navigator-plugins>plugins</a></code>[<var>index</var>]<dd>
+    <p>Returns the specified <code>Plugin</code> object.</p>
+   <dt><var>plugin</var> = <var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-plugins-4><a href=#dom-navigator-plugins>plugins</a></code> . <code id=plugins:dom-pluginarray-item><a href=#dom-pluginarray-item>item</a></code>(<var>name</var>)<dt><var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-plugins-5><a href=#dom-navigator-plugins>plugins</a></code>[<var>name</var>]<dd>
+    <p>Returns the <code>Plugin</code> object for the plugin with the given name.</p>
+   <dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-mimetypes>mimeTypes</code> . <code id=dom-mimetypearray-length>length</code><dd>
+    <p>Returns the number of MIME types, represented by <code>MimeType</code> objects, supported by the plugins that the user agent reports.</p>
+   <dt><var>mimeType</var> = <var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-mimetypes><a href=#dom-navigator-mimetypes>mimeTypes</a></code> . <code id=dom-mimetypearray-item>item</code>(<var>index</var>)<dt><var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-mimetypes-2><a href=#dom-navigator-mimetypes>mimeTypes</a></code>[<var>index</var>]<dd>
+    <p>Returns the specified <code>MimeType</code> object.</p>
+   <dt><var>mimeType</var> = <var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-mimetypes-3><a href=#dom-navigator-mimetypes>mimeTypes</a></code> . <code id=plugins:dom-mimetypearray-item><a href=#dom-mimetypearray-item>item</a></code>(<var>name</var>)<dt><var>window</var> . <code>navigator</code> . <code id=plugins:dom-navigator-mimetypes-4><a href=#dom-navigator-mimetypes>mimeTypes</a></code>[<var>name</var>]<dd>
+    <p>Returns the <code>MimeType</code> object for the given MIME type.</p>
+   <dt><var>plugin</var> . <code id=dom-plugin-name>name</code>
+   <dd>
+    <p>Returns the plugin's name.</p>
+   <dt><var>plugin</var> . <code id=dom-plugin-description>description</code>
+   <dd>
+    <p>Returns the plugin's description.</p>
+   <dt><var>plugin</var> . <code id=dom-plugin-filename>filename</code>
+   <dd>
+    <p>Returns the plugin library's filename, if applicable on the current platform.</p>
+   <dt><var>plugin</var> . <code id=dom-plugin-length>length</code><dd>
+    <p>Returns the number of MIME types, represented by <code>MimeType</code> objects, supported by the plugin.</p>
+   <dt><var>mimeType</var> = <var>plugin</var> . <code id=dom-plugin-item>item</code>(<var>index</var>)<dt><var>plugin</var>[<var>index</var>]<dd>
+    <p>Returns the specified <code>MimeType</code> object.</p>
+   <dt><var>mimeType</var> = <var>plugin</var> . <code id=plugins:dom-plugin-item><a href=#dom-plugin-item>item</a></code>(<var>name</var>)<dt><var>plugin</var>[<var>name</var>]<dd>
+    <p>Returns the <code>MimeType</code> object for the given MIME type.</p>
+   <dt><var>mimeType</var> . <code id=dom-mimetype-type>type</code>
+   <dd>
+    <p>Returns the MIME type.</p>
+   <dt><var>mimeType</var> . <code id=dom-mimetype-description>description</code>
+   <dd>
+    <p>Returns the MIME type's description.</p>
+   <dt><var>mimeType</var> . <code id=dom-mimetype-suffixes>suffixes</code>
+   <dd>
+    <p>Returns the MIME type's typical file extensions, in a comma-separated list.</p>
+   <dt><var>mimeType</var> . <code id=dom-mimetype-enabledplugin>enabledPlugin</code>
+   <dd>
+    <p>Returns the <code>Plugin</code> object that implements this MIME type.</p>
+   <dt><var>window</var> . <code>navigator</code> . <code id=dom-navigator-javaenabled>javaEnabled()</code><dd>
+    <p>Returns true if there's a plugin that supports the MIME type "<code>application/x-java-vm</code>".</p>
+   </dl>
+
+  
+
+
+
+  <nav><a href=timers-and-user-prompts.html>← 8.5 Timers</a> — <a href=./>Table of Contents</a> — <a href=imagebitmap-and-animations.html>8.8 Images →</a></nav>

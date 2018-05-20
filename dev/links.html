@@ -1,0 +1,1071 @@
+<!DOCTYPE html><html class=split lang=en-US-x-hixie><script src=/link-fixup.js defer=""></script><meta charset=utf-8><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name=viewport><title>HTML Standard, Developer's Edition</title><meta content=#3c790a name=theme-color><link rel=icon href=https://resources.whatwg.org/logo.svg><script>
+   function toggleStatus(div) {
+     div.parentNode.classList.toggle('wrapped');
+   }
+  </script><style>
+   .status { min-height: 0.6em; font: 1em sans-serif; width: 9em; padding: 0.3em; position: absolute; z-index: 8; right: 0.3em; background: #EEE; color: black; box-shadow: 0 0 3px #999; overflow: hidden; margin: -2em 0 0 0; border-collapse: initial; border-spacing: initial; }
+   .status:hover { z-index: 9; }
+   .status:focus-within { z-index: 9; }
+   .status.wrapped > :not(input) { display: none; }
+   .status > input { position: absolute; left: 0; top: 0; width: 1em; height: 1em; border: none; background: transparent; padding: 0; margin: 0; }
+   .status > p { font-size: 0.6em; margin: 0; padding: 0; }
+   .status > p + p { padding-top: 0.5em; }
+   .status > p > strong { margin-left: 1.5em; }
+   .status > .support { display: block; }
+   .status > .support > span { padding: 0.2em 0; display: block; display: table; }
+   .status > .support > span.partial { color: #666666; filter: grayscale(50%); }
+   .status > .support > span.no { color: #CCCCCC; filter: grayscale(100%); }
+   .status > .support > span.no::before { opacity: 0.5; }
+   .status > .support > span:first-of-type { padding-top: 0.5em; }
+   .status > .support > span > span { padding: 0 0.5em; display: table-cell; vertical-align: top; }
+   .status > .support > span > span:first-child { width: 100%; }
+   .status > .support > span > span:last-child { width: 100%; white-space: pre; padding: 0; }
+   .status > .support > span::before { content: ' '; display: table-cell; min-width: 1.5em; height: 1.5em; background: no-repeat center center; background-size: contain; text-align: right; font-size: 0.75em; font-weight: bold; }
+   .status > .support > .and_chr::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .and_ff::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .and_uc::before { background-image: url(https://resources.whatwg.org/browser-logos/uc.png); } /* UC Browser for Android */
+   .status > .support > .android::before { background-image: url(https://resources.whatwg.org/browser-logos/android.svg); }
+   .status > .support > .bb::before { background-image: url(https://resources.whatwg.org/browser-logos/bb.jpg); } /* Blackberry Browser */
+   .status > .support > .chrome::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .edge::before { background-image: url(https://resources.whatwg.org/browser-logos/edge.svg); }
+   .status > .support > .firefox::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .ie::before { background-image: url(https://resources.whatwg.org/browser-logos/ie.png); }
+   .status > .support > .ie_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/ie-mobile.svg); }
+   .status > .support > .ios_saf::before { background-image: url(https://resources.whatwg.org/browser-logos/safari-ios.svg); }
+   .status > .support > .op_mini::before { background-image: url(https://resources.whatwg.org/browser-logos/opera-mini.png); }
+   .status > .support > .op_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .opera::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .safari::before { background-image: url(https://resources.whatwg.org/browser-logos/safari.png); }
+   .status > .support > .samsung::before { background-image: url(https://resources.whatwg.org/browser-logos/samsung.png); }
+   .status > .caniuse { text-align: right; font-style: italic; width: 100%; }
+   .status > .caniuse + p { margin-top: 0.5em; border-top: 1px solid silver; }
+
+   @media (max-width: 767px) {
+     .status { right: -9em; }
+   }
+  </style><link rel=stylesheet href=styles.css><body>
+  <script async="" src=search.js></script>
+  
+  
+  <header id=head class="head with-buttons">
+   <a href=https://whatwg.org/ class=logo><img alt=WHATWG src=https://resources.whatwg.org/logo.svg width=100 height=100></a>
+   
+   <hgroup><h1><a rel=home href=/dev/>HTML: The Living Standard</a></h1><h2 id="developer's-edition-—-last-updated-date:-01-jan-1901" class="no-num no-toc">Developer's Edition — Last Updated <span class=pubdate>20 May 2018</span></h2><div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Thu Apr 27 2017 20:05:51 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.zh.html></div></hgroup>
+   
+   <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-91053840-1', 'auto');
+      ga('send', 'pageview');
+   </script>
+  </header>
+
+  
+
+  
+
+  
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Mon Dec 05 2016 02:34:08 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/table-of-contents.zh.html></div>
+  
+
+  
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Sat Jul 22 2017 01:54:48 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/full-table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/full-table-of-contents.zh.html></div>
+  
+
+  
+
+  
+
+  <h2 id=about-dev-edition class="no-num no-toc">关于本标准</h2>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Sat Jul 22 2017 01:54:48 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/about-this-specification.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/about-this-specification.zh.html></div>
+
+  <p>本标准与其他标准不同，它的处理完全考虑到了 Web 开发者。</p>
+
+  <p>本标准关注可读性和可访问性，不像 <a href=/multipage/>完整的 HTML 标准</a>，"开发者版本" 移除了
+  只有浏览器厂商需要知道的信息。它个版本是用我们的构建工具从完整的规范自动产出的，
+  因此总会与最新开发的 HTML 保持同步。</p>
+
+  <p>其概念、构造，以及未来可参考 <a href=http://web.archive.org/web/20150220020906/http://archive.germanforblack.com:80/articles/html5-for-web-developers>
+  原始出版发行</a>，以及 <a href=https://blog.whatwg.org/developers-edition-comeback>关于重启该版本的博文</a>。</p>
+
+  <p>最后，欢迎 <a href=https://github.com/whatwg/html/labels/dev%20edition>在 GitHub 贡献</a> 来改进该版本！</p>
+
+  
+
+  <nav><a href=text-level-semantics.html>← 4.5 Text-level semantics</a> — <a href=./>Table of Contents</a> — <a href=edits.html>4.7 Edits →</a></nav><ol class=toc><li><ol><li><a href=links.html#links><span class=secno>4.6</span> Links</a><ol><li><a href=links.html#introduction-2><span class=secno>4.6.1</span> 概述</a><li><a href=links.html#links-created-by-a-and-area-elements><span class=secno>4.6.2</span> Links created by <code>a</code> and <code>area</code> elements</a><li><a href=links.html#api-for-a-and-area-elements><span class=secno>4.6.3</span> API for <code>a</code> and <code>area</code> elements</a><li><a href=links.html#downloading-resources><span class=secno>4.6.4</span> Downloading resources</a><li><a href=links.html#linkTypes><span class=secno>4.6.5</span> Link types</a><ol><li><a href=links.html#rel-alternate><span class=secno>4.6.5.1</span> Link type "<code>alternate</code>"</a><li><a href=links.html#link-type-author><span class=secno>4.6.5.2</span> "<code>author</code>" 链接类型</a><li><a href=links.html#link-type-bookmark><span class=secno>4.6.5.3</span> "<code>bookmark</code>" 链接类型</a><li><a href=links.html#link-type-canonical><span class=secno>4.6.5.4</span> Link type "<code>canonical</code>"</a><li><a href=links.html#link-type-dns-prefetch><span class=secno>4.6.5.5</span> "<code>dns-prefetch</code>" 链接类型</a><li><a href=links.html#link-type-external><span class=secno>4.6.5.6</span> "<code>external</code>" 链接类型</a><li><a href=links.html#link-type-help><span class=secno>4.6.5.7</span> "<code>help</code>" 链接类型</a><li><a href=links.html#rel-icon><span class=secno>4.6.5.8</span> Link type "<code>icon</code>"</a><li><a href=links.html#link-type-license><span class=secno>4.6.5.9</span> "<code>license</code>" 链接类型</a><li><a href=links.html#link-type-modulepreload><span class=secno>4.6.5.10</span> Link type "<code>modulepreload</code>"</a><li><a href=links.html#link-type-nofollow><span class=secno>4.6.5.11</span> "<code>nofollow</code>" 链接类型</a><li><a href=links.html#link-type-noopener><span class=secno>4.6.5.12</span> Link type "<code>noopener</code>"</a><li><a href=links.html#link-type-noreferrer><span class=secno>4.6.5.13</span> Link type "<code>noreferrer</code>"</a><li><a href=links.html#link-type-pingback><span class=secno>4.6.5.14</span> "<code>pingback</code>" 链接类型</a><li><a href=links.html#link-type-preconnect><span class=secno>4.6.5.15</span> "<code>preconnect</code> 链接类型"</a><li><a href=links.html#link-type-prefetch><span class=secno>4.6.5.16</span> "<code>prefetch</code>" 链接类型</a><li><a href=links.html#link-type-preload><span class=secno>4.6.5.17</span> Link type "<code>preload</code>"</a><li><a href=links.html#link-type-prerender><span class=secno>4.6.5.18</span> "<code>prerender</code>" 链接类型</a><li><a href=links.html#link-type-search><span class=secno>4.6.5.19</span> Link type "<code>search</code>"</a><li><a href=links.html#link-type-stylesheet><span class=secno>4.6.5.20</span> Link type "<code>stylesheet</code>"</a><li><a href=links.html#link-type-tag><span class=secno>4.6.5.21</span> "<code>tag</code>" 链接类型</a><li><a href="links.html#sequential link types"><span class=secno>4.6.5.22</span> 顺序链接类型</a><ol><li><a href=links.html#link-type-next><span class=secno>4.6.5.22.1</span> "<code>next</code>" 链接类型</a><li><a href=links.html#link-type-prev><span class=secno>4.6.5.22.2</span> "<code>prev</code>" 链接类型</a></ol><li><a href="links.html#other link types"><span class=secno>4.6.5.23</span> 其他链接类型</a></ol></ol></ol></ol><h3 id=links><span class=secno>4.6</span> Links<a href=#links class=self-link></a></h3>
+<div data-en-date="Mon Jun 12 2017 23:29:06 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <h4 id=introduction-2><span class=secno>4.6.1</span> 概述<a href=#introduction-2 class=self-link></a></h4>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/introduction.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/introduction.zh.html></div>
+
+  <p>链接是一种概念构造，由 <code id=introduction-2:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code>, <code id=introduction-2:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 和 <code id=introduction-2:link-元素><a href=semantics.html#link-元素>link</a></code> 元素创建，
+  <a href=dom.html#represents id=introduction-2:represents>表示</a> 两个资源之间的联系，其中一个是当前 <code>Document</code>。
+  在 HTML 中有两种链接：</p>
+
+  <dl><dt><dfn id=external-resource-link data-lt="external resource link" data-export="">
+   外部资源链接</dfn><dd><p>这些链接指向的资源用于增强当前文档，通常由用户代理自动处理。<dt><dfn id=hyperlink data-lt=hyperlink data-export="">超链接</dfn><dd><p>这些指向其他文档的链接通常通过用户代理暴露给用户，这样用户可以让用户代理
+   <span>导航</span> 到那些资源，例如在浏览器中访问或者下载它们。</dl>
+
+  <p>对于有 <code id=introduction-2:attr-link-href><a href=semantics.html#attr-link-href>href</a></code> 属性和
+  <code id=introduction-2:attr-link-rel><a href=semantics.html#attr-link-rel>rel</a></code> 属性的 <code id=introduction-2:link-元素-2><a href=semantics.html#link-元素>link</a></code> 元素，
+  必须为 <code id=introduction-2:attr-link-rel-2><a href=semantics.html#attr-link-rel>rel</a></code> 属性的关键字按照
+  <a href=#linkTypes>链接类型</a> 部分的定义创建一个链接。</p>
+
+  <p>类似地，对于有 <code id=introduction-2:attr-hyperlink-href><a href=#attr-hyperlink-href>href</a></code> 属性和
+  <code id=introduction-2:attr-hyperlink-rel><a href=#attr-hyperlink-rel>rel</a></code> 属性的 <code id=introduction-2:the-a-element-2><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id=introduction-2:the-area-element-2><a href=image-maps.html#the-area-element>area</a></code> 元素，
+  必须为 <code id=introduction-2:attr-hyperlink-rel-2><a href=#attr-hyperlink-rel>rel</a></code> 属性的关键字按照
+  <a href=#linkTypes>链接类型 </a> 部分的定义创建一个链接。
+  与 <code id=introduction-2:link-元素-3><a href=semantics.html#link-元素>link</a></code> 元素不同，对于有 <code id=introduction-2:attr-hyperlink-href-2><a href=#attr-hyperlink-href>href</a></code> 属性的
+  <code id=introduction-2:the-a-element-3><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id=introduction-2:the-area-element-3><a href=image-maps.html#the-area-element>area</a></code> 元素，如果没有
+  <code id=introduction-2:attr-hyperlink-rel-3><a href=#attr-hyperlink-rel>rel</a></code> 属性或
+  <code id=introduction-2:attr-hyperlink-rel-4><a href=#attr-hyperlink-rel>rel</a></code> 属性的关键字的定义中没有一个是用来指定
+  <a href=#hyperlink id=introduction-2:hyperlink>超链接</a> 的，也必须创建一个 <a href=#hyperlink id=introduction-2:hyperlink-2>超链接</a>。
+  这个暗示的超链接没有特殊含义（它也没有 <a href=#linkTypes>链接类型</a>），只是把该元素的
+  <a href=https://dom.spec.whatwg.org/#concept-node-document id=introduction-2:node-document data-x-internal=node-document>节点文档</a> 链接到了该元素的 <code id=introduction-2:attr-hyperlink-href-3><a href=#attr-hyperlink-href>href</a></code> 属性给出的资源。</p>
+
+  <p><a href=#hyperlink id=introduction-2:hyperlink-3>超链接</a> 可以有一个或更多的
+  <dfn id=hyperlink-annotation>超链接注释</dfn>，用来修改这个超链接的处理语义。</p>
+
+
+  <h4 id=links-created-by-a-and-area-elements><span class=secno>4.6.2</span> Links created by <code id=links-created-by-a-and-area-elements:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> and <code id=links-created-by-a-and-area-elements:the-area-element><a href=image-maps.html#the-area-element>area</a></code> elements<a href=#links-created-by-a-and-area-elements class=self-link></a></h4>
+<div data-en-date="Sun Feb 25 2018 22:54:16 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/links-created-by-a-and-area-elements.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/links-created-by-a-and-area-elements.zh.html?filename=links-created-by-a-and-area-elements.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flinks-created-by-a-and-area-elements.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <dfn id=attr-hyperlink-href><code>href</code></dfn> attribute on <code id=links-created-by-a-and-area-elements:the-a-element-2><a href=text-level-semantics.html#the-a-element>a</a></code> and
+  <code id=links-created-by-a-and-area-elements:the-area-element-2><a href=image-maps.html#the-area-element>area</a></code> elements must have a value that is a <a id=links-created-by-a-and-area-elements:valid-url-potentially-surrounded-by-spaces href=infrastructure.html#valid-url-potentially-surrounded-by-spaces>valid URL potentially surrounded by
+  spaces</a>.</p>
+
+  <p class=note>The <code id=links-created-by-a-and-area-elements:attr-hyperlink-href><a href=#attr-hyperlink-href>href</a></code> attribute on <code id=links-created-by-a-and-area-elements:the-a-element-3><a href=text-level-semantics.html#the-a-element>a</a></code> and
+  <code id=links-created-by-a-and-area-elements:the-area-element-3><a href=image-maps.html#the-area-element>area</a></code> elements is not required; when those elements do not have <code id=links-created-by-a-and-area-elements:attr-hyperlink-href-2><a href=#attr-hyperlink-href>href</a></code> attributes they do not create hyperlinks.</p>
+
+  <p>The <dfn id=attr-hyperlink-target><code>target</code></dfn> attribute, if present, must be
+  a <a id=links-created-by-a-and-area-elements:valid-browsing-context-name-or-keyword href=browsers.html#valid-browsing-context-name-or-keyword>valid browsing context name or keyword</a>. It gives the name of the <a id=links-created-by-a-and-area-elements:browsing-context href=browsers.html#browsing-context>browsing
+  context</a> that will be used. </p>
+
+  <p>When an <code id=links-created-by-a-and-area-elements:the-a-element-4><a href=text-level-semantics.html#the-a-element>a</a></code> or <code id=links-created-by-a-and-area-elements:the-area-element-4><a href=image-maps.html#the-area-element>area</a></code> element's <a id=links-created-by-a-and-area-elements:activation-behaviour href=https://dom.spec.whatwg.org/#eventtarget-activation-behavior data-x-internal=activation-behaviour>activation behavior</a> is
+  invoked, the user agent may allow the user to indicate a preference regarding whether the
+  hyperlink is to be used for <span>navigation</span> or whether the resource it
+  specifies is to be downloaded.</p>
+
+  <p>In the absence of a user preference, the default should be navigation if the element has no
+  <code id=links-created-by-a-and-area-elements:attr-hyperlink-download><a href=#attr-hyperlink-download>download</a></code> attribute, and should be to download the
+  specified resource if it does.</p>
+
+  <p>Whether determined by the user's preferences or via the presence or absence of the attribute,
+  if the decision is to use the hyperlink for <span>navigation</span> then the user
+  agent must <span>follow the hyperlink</span>, and if the decision is
+  to use the hyperlink to download a resource, the user agent must <span>download the hyperlink</span>. These terms are defined in subsequent sections
+  below.</p>
+
+  <p>The <dfn id=attr-hyperlink-download><code>download</code></dfn> attribute, if present,
+  indicates that the author intends the hyperlink to be used for <span>downloading a resource</span>. The attribute may have a value; the value, if any,
+  specifies the default file name that the author recommends for use in labeling the resource in a
+  local file system. There are no restrictions on allowed values, but authors are cautioned that
+  most file systems have limitations with regard to what punctuation is supported in file names,
+  and user agents are likely to adjust file names accordingly.</p>
+
+
+  <p>The <dfn id=ping><code>ping</code></dfn> attribute, if present,
+  gives the URLs of the resources that are interested in being notified if the user follows the
+  hyperlink. The value must be a <a id=links-created-by-a-and-area-elements:set-of-space-separated-tokens href=infrastructure.html#set-of-space-separated-tokens>set of space-separated tokens</a>, each of which must be a
+  <a id=links-created-by-a-and-area-elements:valid-non-empty-url href=infrastructure.html#valid-non-empty-url>valid non-empty URL</a> whose <a href=https://url.spec.whatwg.org/#concept-url-scheme id=links-created-by-a-and-area-elements:concept-url-scheme data-x-internal=concept-url-scheme>scheme</a> is an
+  <a id=links-created-by-a-and-area-elements:http(s)-scheme href=https://fetch.spec.whatwg.org/#http-scheme data-x-internal=http(s)-scheme>HTTP(S) scheme</a>. <div class=status><input onclick=toggleStatus(this) value=⋰ type=button><p class=support><strong>Support:</strong> ping<span class="and_chr yes"><span>Chrome for Android</span> <span>64+</span></span><span class="chrome yes"><span>Chrome</span> <span>15+</span></span><span class="ios_saf yes"><span>iOS Safari</span> <span>5.0+</span></span><span class="and_uc yes"><span>UC Browser for Android</span> <span>11.8+</span></span><span class="firefox no"><span>Firefox</span> <span>None</span></span><span class="ie no"><span>IE</span> <span>None</span></span><span class="samsung yes"><span>Samsung Internet</span> <span>4+</span></span><span class="op_mini no"><span>Opera Mini</span> <span>None</span></span><span class="safari yes"><span>Safari</span> <span>6+</span></span><span class="edge yes"><span>Edge</span> <span>17+</span></span><span class="android yes"><span>Android Browser</span> <span>4.4+</span></span><span class="opera yes"><span>Opera</span> <span>15+</span></span><p class=caniuse>Source: <a href="https://caniuse.com/#feat=ping">caniuse.com</a></div>
+
+  <p><span id=dom-a-rellist></span>The <dfn id=attr-hyperlink-rel><code>rel</code></dfn> attribute on <code id=links-created-by-a-and-area-elements:the-a-element-5><a href=text-level-semantics.html#the-a-element>a</a></code> and <code id=links-created-by-a-and-area-elements:the-area-element-5><a href=image-maps.html#the-area-element>area</a></code>
+  elements controls what kinds of links the elements create. The attribute's value must be a
+  <a id=links-created-by-a-and-area-elements:set-of-space-separated-tokens-2 href=infrastructure.html#set-of-space-separated-tokens>set of space-separated tokens</a>. The <a href=#linkTypes>allowed keywords and their
+  meanings</a> are defined below.<div class=status><input onclick=toggleStatus(this) value=⋰ type=button><p class=support><strong>Support:</strong> rellist<span class="and_chr partial"><span>Chrome for Android (limited)</span> <span>64+</span></span><span class="chrome yes"><span>Chrome</span> <span>65+</span></span><span class="ios_saf yes"><span>iOS Safari</span> <span>9.0+</span></span><span class="and_uc partial"><span>UC Browser for Android (limited)</span> <span>11.8+</span></span><span class="firefox yes"><span>Firefox</span> <span>30+</span></span><span class="ie no"><span>IE</span> <span>None</span></span><span class="samsung partial"><span>Samsung Internet (limited)</span> <span>5+</span></span><span class="op_mini no"><span>Opera Mini</span> <span>None</span></span><span class="safari yes"><span>Safari</span> <span>9+</span></span><span class="edge partial"><span>Edge (limited)</span> <span>17+</span></span><span class="android partial"><span>Android Browser (limited)</span> <span>62+</span></span><span class="opera yes"><span>Opera</span> <span>52+</span></span><p class=caniuse>Source: <a href="https://caniuse.com/#feat=rellist">caniuse.com</a></div>
+
+  <p><code id=links-created-by-a-and-area-elements:attr-hyperlink-rel><a href=#attr-hyperlink-rel>rel</a></code>'s
+  <a href=https://dom.spec.whatwg.org/#concept-supported-tokens id=links-created-by-a-and-area-elements:concept-supported-tokens data-x-internal=concept-supported-tokens>supported tokens</a> are the keywords defined in
+  <a href=#linkTypes>HTML link types</a> which are allowed on <code id=links-created-by-a-and-area-elements:the-a-element-6><a href=text-level-semantics.html#the-a-element>a</a></code> and
+  <code id=links-created-by-a-and-area-elements:the-area-element-6><a href=image-maps.html#the-area-element>area</a></code> elements, impact the processing model, and are supported by the user agent. The
+  possible <a href=https://dom.spec.whatwg.org/#concept-supported-tokens id=links-created-by-a-and-area-elements:concept-supported-tokens-2 data-x-internal=concept-supported-tokens>supported tokens</a> are
+  <code id=links-created-by-a-and-area-elements:link-type-noreferrer><a href=#link-type-noreferrer>noreferrer</a></code> and
+  <code id=links-created-by-a-and-area-elements:link-type-noopener><a href=#link-type-noopener>noopener</a></code>.
+  <code id=links-created-by-a-and-area-elements:attr-hyperlink-rel-2><a href=#attr-hyperlink-rel>rel</a></code>'s
+  <a href=https://dom.spec.whatwg.org/#concept-supported-tokens id=links-created-by-a-and-area-elements:concept-supported-tokens-3 data-x-internal=concept-supported-tokens>supported tokens</a> must only include the tokens from
+  this list that the user agent implements the processing model for.</p>
+
+  <p>Other specifications may add <a href=#linkTypes>HTML link types</a> as defined in <a href=#other-link-types>Other link types</a>, with the following additional requirements:</p>
+
+  <ul><li>Such specifications may require that their link types be included in <code id=links-created-by-a-and-area-elements:attr-link-rel><a href=semantics.html#attr-link-rel>rel</a></code>'s <a href=https://dom.spec.whatwg.org/#concept-supported-tokens id=links-created-by-a-and-area-elements:concept-supported-tokens-4 data-x-internal=concept-supported-tokens>supported
+   tokens</a>.<li>Such specifications may specify that their link types are <a href=#body-ok id=links-created-by-a-and-area-elements:body-ok>body-ok</a>.</ul>
+
+  <p>The <code id=links-created-by-a-and-area-elements:attr-hyperlink-rel-3><a href=#attr-hyperlink-rel>rel</a></code> attribute has no default value. If the
+  attribute is omitted or if none of the values in the attribute are recognized by the user agent,
+  then the document has no particular relationship with the destination resource other than there
+  being a hyperlink between the two.</p>
+
+  <p>The <dfn id=attr-hyperlink-hreflang><code>hreflang</code></dfn> attribute on
+  <code id=links-created-by-a-and-area-elements:the-a-element-7><a href=text-level-semantics.html#the-a-element>a</a></code> elements that create <a href=#hyperlink id=links-created-by-a-and-area-elements:hyperlink>hyperlinks</a>, if present, gives
+  the language of the linked resource. It is purely advisory. The value must be a valid BCP 47
+  language tag. <a href=references.html#refsBCP47>[BCP47]</a> </p>
+
+  <p>The <dfn id=attr-hyperlink-type><code>type</code></dfn> attribute, if present, gives the
+  <a id=links-created-by-a-and-area-elements:mime-type href=https://mimesniff.spec.whatwg.org/#mime-type data-x-internal=mime-type>MIME type</a> of the linked resource. It is purely advisory. The value must be a
+  <a id=links-created-by-a-and-area-elements:valid-mime-type-string href=https://mimesniff.spec.whatwg.org/#valid-mime-type data-x-internal=valid-mime-type-string>valid MIME type string</a>. </p>
+
+  <p>The <dfn id=attr-hyperlink-referrerpolicy><code>referrerpolicy</code></dfn> attribute
+  is a <a id=links-created-by-a-and-area-elements:referrer-policy-attribute href=infrastructure.html#referrer-policy-attribute>referrer policy attribute</a>. Its purpose is to set the <a id=links-created-by-a-and-area-elements:referrer-policy href=https://w3c.github.io/webappsec-referrer-policy/#referrer-policy data-x-internal=referrer-policy>referrer policy</a>
+  used when <span>following hyperlinks</span>. <a href=references.html#refsREFERRERPOLICY>[REFERRERPOLICY]</a></p>
+
+
+  <h4 id=api-for-a-and-area-elements><span class=secno>4.6.3</span> API for <code id=api-for-a-and-area-elements:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> and <code id=api-for-a-and-area-elements:the-area-element><a href=image-maps.html#the-area-element>area</a></code> elements<a href=#api-for-a-and-area-elements class=self-link></a></h4>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/api-for-a-and-area-elements.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/api-for-a-and-area-elements.zh.html?filename=api-for-a-and-area-elements.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Fapi-for-a-and-area-elements.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <dl class=domintro><dt><var>hyperlink</var> . <code>toString()</code><dt><var>hyperlink</var> . <code id=dom-hyperlink-href>href</code><dd>
+    <p>Returns the hyperlink's URL.</p>
+    <p>Can be set, to change the URL.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-origin>origin</code><dd>
+    <p>Returns the hyperlink's URL's origin.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-protocol>protocol</code><dd>
+    <p>Returns the hyperlink's URL's scheme.</p>
+    <p>Can be set, to change the URL's scheme.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-username>username</code><dd>
+    <p>Returns the hyperlink's URL's username.</p>
+    <p>Can be set, to change the URL's username.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-password>password</code><dd>
+    <p>Returns the hyperlink's URL's password.</p>
+    <p>Can be set, to change the URL's password.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-host>host</code><dd>
+    <p>Returns the hyperlink's URL's host and port (if different from the default port for the
+    scheme).</p>
+    <p>Can be set, to change the URL's host and port.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-hostname>hostname</code><dd>
+    <p>Returns the hyperlink's URL's host.</p>
+    <p>Can be set, to change the URL's host.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-port>port</code><dd>
+    <p>Returns the hyperlink's URL's port.</p>
+    <p>Can be set, to change the URL's port.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-pathname>pathname</code><dd>
+    <p>Returns the hyperlink's URL's path.</p>
+    <p>Can be set, to change the URL's path.</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-search>search</code><dd>
+    <p>Returns the hyperlink's URL's query (includes leading "<code>?</code>" if
+    non-empty).</p>
+    <p>Can be set, to change the URL's query (ignores leading "<code>?</code>").</p>
+   <dt><var>hyperlink</var> . <code id=dom-hyperlink-hash>hash</code><dd>
+    <p>Returns the hyperlink's URL's fragment (includes leading "<code>#</code>" if
+    non-empty).</p>
+    <p>Can be set, to change the URL's fragment (ignores leading "<code>#</code>").</p>
+   </dl>
+
+  
+
+
+
+
+  <h4 id=downloading-resources><span class=secno>4.6.4</span> Downloading resources<a href=#downloading-resources class=self-link></a></h4><div class=status><input onclick=toggleStatus(this) value=⋰ type=button><p class=support><strong>Support:</strong> download<span class="and_chr yes"><span>Chrome for Android</span> <span>64+</span></span><span class="chrome yes"><span>Chrome</span> <span>14+</span></span><span class="ios_saf no"><span>iOS Safari</span> <span>None</span></span><span class="and_uc yes"><span>UC Browser for Android</span> <span>11.8+</span></span><span class="firefox yes"><span>Firefox</span> <span>20+</span></span><span class="ie no"><span>IE</span> <span>None</span></span><span class="samsung yes"><span>Samsung Internet</span> <span>4+</span></span><span class="op_mini no"><span>Opera Mini</span> <span>None</span></span><span class="safari yes"><span>Safari</span> <span>10.1+</span></span><span class="edge yes"><span>Edge</span> <span>13+</span></span><span class="android yes"><span>Android Browser</span> <span>4.4+</span></span><span class="opera yes"><span>Opera</span> <span>15+</span></span><p class=caniuse>Source: <a href="https://caniuse.com/#feat=download">caniuse.com</a></div>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/downloading-resources/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/downloading-resources/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Fdownloading-resources%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>In some cases, resources are intended for later use rather than immediate viewing. To indicate
+  that a resource is intended to be downloaded for use later, rather than immediately used, the
+  <code id=downloading-resources:attr-hyperlink-download><a href=#attr-hyperlink-download>download</a></code> attribute can be specified on the
+  <code id=downloading-resources:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> or <code id=downloading-resources:the-area-element><a href=image-maps.html#the-area-element>area</a></code> element that creates the <a href=#hyperlink id=downloading-resources:hyperlink>hyperlink</a> to that
+  resource.</p>
+
+  <p>The attribute can furthermore be given a value, to specify the file name that user agents are
+  to use when storing the resource in a file system. This value can be overridden by the `<code id=downloading-resources:http-content-disposition><a data-x-internal=http-content-disposition href=https://tools.ietf.org/html/rfc6266>Content-Disposition</a></code>` HTTP header's filename parameters.
+  <a href=references.html#refsRFC6266>[RFC6266]</a></p>
+
+  <p>In cross-origin situations, the <code id=downloading-resources:attr-hyperlink-download-2><a href=#attr-hyperlink-download>download</a></code>
+  attribute has to be combined with the `<code id=downloading-resources:http-content-disposition-2><a data-x-internal=http-content-disposition href=https://tools.ietf.org/html/rfc6266>Content-Disposition</a></code>` HTTP header, specifically with the
+  <code>attachment</code> disposition type, to avoid the user being warned of possibly
+  nefarious activity. (This is to protect users from being made to download sensitive personal or
+  confidential information without their full understanding.)</p>
+
+  
+
+
+
+
+  
+
+  <div class=note>
+
+   <p>The <code id=downloading-resources:ping><a href=#ping>ping</a></code> attribute is redundant with pre-existing
+   technologies like HTTP redirects and JavaScript in allowing Web pages to track which off-site
+   links are most popular or allowing advertisers to track click-through rates.</p>
+
+   <p>However, the <code id=downloading-resources:ping-2><a href=#ping>ping</a></code> attribute provides these advantages
+   to the user over those alternatives:</p>
+
+   <ul><li>It allows the user to see the final target URL unobscured.<li>It allows the UA to inform the user about the out-of-band notifications.<li>It allows the user to disable the notifications without losing the underlying link
+    functionality.<li>It allows the UA to optimize the use of available network bandwidth so that the target page
+    loads faster.</ul>
+
+   <p>Thus, while it is possible to track users without this feature, authors are encouraged to use
+   the <code id=downloading-resources:ping-3><a href=#ping>ping</a></code> attribute so that the user agent can make the
+   user experience more transparent.</p>
+
+  </div>
+
+  
+
+
+
+  <h4 id=linkTypes><span class=secno>4.6.5</span> Link types<a href=#linkTypes class=self-link></a></h4>
+<div data-en-date="Thu May 17 2018 09:38:34 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The following table summarizes the link types that are defined by this specification, by their
+  corresponding keywords. This table is non-normative; the actual definitions for the link types are
+  given in the next few sections.</p>
+
+  <p>In this section, the term <i>referenced document</i> refers to the resource identified by the
+  element representing the link, and the term <i>current document</i> refers to the resource within
+  which the element representing the link finds itself.</p>
+
+  
+
+  <p>Except where otherwise specified, a keyword must not be specified more than once per <code id=linkTypes:attr-hyperlink-rel><a href=#attr-hyperlink-rel>rel</a></code> attribute.</p>
+
+  <p>Some of the sections that follow the table below list synonyms for certain keywords. The
+  indicated synonyms  must
+  not be used in documents (for example, the keyword "<code>copyright</code>").</p>
+
+  <p>Keywords are always <a id=linkTypes:ascii-case-insensitive href=https://infra.spec.whatwg.org/#ascii-case-insensitive data-x-internal=ascii-case-insensitive>ASCII case-insensitive</a>.</p>
+
+  <p class=example>Thus, <code>rel="next"</code> is the same as <code>rel="NEXT"</code>.</p>
+
+  <p>Keywords that are <dfn id=body-ok>body-ok</dfn> affect whether <code id=linkTypes:link-元素><a href=semantics.html#link-元素>link</a></code> elements are
+  <a id=linkTypes:allowed-in-the-body href=semantics.html#allowed-in-the-body>allowed in the body</a>. The <a href=#body-ok id=linkTypes:body-ok>body-ok</a> keywords defined by this specification
+  are
+  <code id=linkTypes:link-type-dns-prefetch><a href=#link-type-dns-prefetch>dns-prefetch</a></code>,
+  <code id=linkTypes:link-type-modulepreload><a href=#link-type-modulepreload>modulepreload</a></code>,
+  <code id=linkTypes:link-type-pingback><a href=#link-type-pingback>pingback</a></code>,
+  <code id=linkTypes:link-type-preconnect><a href=#link-type-preconnect>preconnect</a></code>,
+  <code id=linkTypes:link-type-prefetch><a href=#link-type-prefetch>prefetch</a></code>,
+  <code id=linkTypes:link-type-preload><a href=#link-type-preload>preload</a></code>,
+  <code id=linkTypes:link-type-prerender><a href=#link-type-prerender>prerender</a></code>, and
+  <code id=linkTypes:link-type-stylesheet><a href=#link-type-stylesheet>stylesheet</a></code>.
+  Other specifications can also define <a href=#body-ok id=linkTypes:body-ok-2>body-ok</a> keywords.</p>
+
+  <table class=yesno><thead><tr><th rowspan=2>Link type<th colspan=2>Effect on...<th rowspan=2><a href=#body-ok id=linkTypes:body-ok-3>body-ok</a><th rowspan=2>Brief description<tr><th><code id=linkTypes:link-元素-2><a href=semantics.html#link-元素>link</a></code><th><code id=linkTypes:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> and <code id=linkTypes:the-area-element><a href=image-maps.html#the-area-element>area</a></code><tbody><tr><td><code id=linkTypes:rel-alternate><a href=#rel-alternate>alternate</a></code><td><a href=#hyperlink id=linkTypes:hyperlink>Hyperlink</a><td><a href=#hyperlink id=linkTypes:hyperlink-2>Hyperlink</a><td class=no> · <td>Gives alternate representations of the current document.<tr><td><code id=linkTypes:link-type-canonical><a href=#link-type-canonical>canonical</a></code><td><a href=#hyperlink id=linkTypes:hyperlink-3>Hyperlink</a><td><em>not allowed</em><td class=no> · <td>Gives the preferred URL for the current document.<tr><td><code id=linkTypes:link-type-author><a href=#link-type-author>author</a></code><td><a href=#hyperlink id=linkTypes:hyperlink-4>Hyperlink</a><td><a href=#hyperlink id=linkTypes:hyperlink-5>Hyperlink</a><td class=no> · <td>Gives a link to the author of the current document or article.<tr><td><code id=linkTypes:link-type-bookmark><a href=#link-type-bookmark>bookmark</a></code><td><em>not allowed</em><td><a href=#hyperlink id=linkTypes:hyperlink-6>Hyperlink</a><td class=no> · <td>Gives the permalink for the nearest ancestor section.<tr><td><code id=linkTypes:link-type-dns-prefetch-2><a href=#link-type-dns-prefetch>dns-prefetch</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link>External Resource</a><td><em>not allowed</em><td class=yes> Yes <td>Specifies that the user agent should preemptively perform DNS resolution for the target resource's <a id=linkTypes:concept-origin href=origin.html#concept-origin>origin</a>.<tr><td><code id=linkTypes:link-type-external><a href=#link-type-external>external</a></code><td><em>not allowed</em><td><a href=#hyperlink-annotation id=linkTypes:hyperlink-annotation>Annotation</a><td class=no> · <td>Indicates that the referenced document is not part of the same site as the current document.<tr><td><code id=linkTypes:link-type-help><a href=#link-type-help>help</a></code><td><a href=#hyperlink id=linkTypes:hyperlink-7>Hyperlink</a><td><a href=#hyperlink id=linkTypes:hyperlink-8>Hyperlink</a><td class=no> · <td>Provides a link to context-sensitive help.<tr><td><code id=linkTypes:rel-icon><a href=#rel-icon>icon</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link-2>External Resource</a><td><em>not allowed</em><td class=no> · <td>Imports an icon to represent the current document.<tr><td><code id=linkTypes:link-type-modulepreload-2><a href=#link-type-modulepreload>modulepreload</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link-3>External Resource</a><td><em>not allowed</em><td class=yes> Yes <td>Specifies that the user agent must preemptively <span>fetch the module
+     script</span> and store it in the document's <a href=dom.html#concept-document-module-map id=linkTypes:concept-document-module-map>module map</a> for later
+     evaluation. Optionally, the module's dependencies can be fetched as well.<tr><td><code id=linkTypes:link-type-license><a href=#link-type-license>license</a></code><td><a href=#hyperlink id=linkTypes:hyperlink-9>Hyperlink</a><td><a href=#hyperlink id=linkTypes:hyperlink-10>Hyperlink</a><td class=no> · <td>Indicates that the main content of the current document is covered by the copyright license described by the referenced document.<tr><td><code id=linkTypes:link-type-next><a href=#link-type-next>next</a></code><td><a href=#hyperlink id=linkTypes:hyperlink-11>Hyperlink</a><td><a href=#hyperlink id=linkTypes:hyperlink-12>Hyperlink</a><td class=no> · <td>Indicates that the current document is a part of a series, and that the next document in the series is the referenced document.<tr><td><code id=linkTypes:link-type-nofollow><a href=#link-type-nofollow>nofollow</a></code><td><em>not allowed</em><td><a href=#hyperlink-annotation id=linkTypes:hyperlink-annotation-2>Annotation</a><td class=no> · <td>Indicates that the current document's original author or publisher does not endorse the referenced document.<tr><td><code id=linkTypes:link-type-noopener><a href=#link-type-noopener>noopener</a></code><td><em>not allowed</em><td><a href=#hyperlink-annotation id=linkTypes:hyperlink-annotation-3>Annotation</a><td class=no> · <td>Indicates that any <a id=linkTypes:browsing-context href=browsers.html#browsing-context>browsing context</a> created by following the hyperlink is
+     <a id=linkTypes:disowned-its-opener href=browsers.html#disowned-its-opener>disowned</a>.<tr><td><code id=linkTypes:link-type-noreferrer><a href=#link-type-noreferrer>noreferrer</a></code><td><em>not allowed</em><td><a href=#hyperlink-annotation id=linkTypes:hyperlink-annotation-4>Annotation</a><td class=no> · <td>Indicates that any <a id=linkTypes:browsing-context-2 href=browsers.html#browsing-context>browsing context</a> created by following the hyperlink is
+     <a id=linkTypes:disowned-its-opener-2 href=browsers.html#disowned-its-opener>disowned</a> and will not get a `<code id=linkTypes:http-referer><a data-x-internal=http-referer href=https://tools.ietf.org/html/rfc7231#section-5.5.2>Referer</a></code>` (sic)
+     header.<tr><td><code id=linkTypes:link-type-pingback-2><a href=#link-type-pingback>pingback</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link-4>External Resource</a><td><em>not allowed</em><td class=yes> Yes <td>Gives the address of the pingback server that handles pingbacks to the current document.<tr><td><code id=linkTypes:link-type-preconnect-2><a href=#link-type-preconnect>preconnect</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link-5>External Resource</a><td><em>not allowed</em><td class=yes> Yes <td>Specifies that the user agent should preemptively connect to the target resource's <a id=linkTypes:concept-origin-2 href=origin.html#concept-origin>origin</a>.<tr><td><code id=linkTypes:link-type-prefetch-2><a href=#link-type-prefetch>prefetch</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link-6>External Resource</a><td><em>not allowed</em><td class=yes> Yes <td>Specifies that the user agent should preemptively <a href=https://fetch.spec.whatwg.org/#concept-fetch id=linkTypes:concept-fetch data-x-internal=concept-fetch>fetch</a> and cache the target resource as it is likely to be required for a followup <span>navigation</span>.<tr><td><code id=linkTypes:link-type-preload-2><a href=#link-type-preload>preload</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link-7>External Resource</a><td><em>not allowed</em><td class=yes> Yes <td>Specifies that the user agent must preemptively <a href=https://fetch.spec.whatwg.org/#concept-fetch id=linkTypes:concept-fetch-2 data-x-internal=concept-fetch>fetch</a> and cache the target resource for current <span>navigation</span> according to the <a href=https://fetch.spec.whatwg.org/#concept-potential-destination id=linkTypes:concept-potential-destination data-x-internal=concept-potential-destination>potential destination</a> given by the <code id=linkTypes:attr-link-as><a href=semantics.html#attr-link-as>as</a></code> attribute (and the <a href=https://fetch.spec.whatwg.org/#concept-request-priority id=linkTypes:concept-request-priority data-x-internal=concept-request-priority>priority</a> associated with the <a href=https://fetch.spec.whatwg.org/#concept-potential-destination-translate id=linkTypes:concept-potential-destination-translate data-x-internal=concept-potential-destination-translate>corresponding</a> <a href=https://fetch.spec.whatwg.org/#concept-request-destination id=linkTypes:concept-request-destination data-x-internal=concept-request-destination>destination</a>).<tr><td><code id=linkTypes:link-type-prerender-2><a href=#link-type-prerender>prerender</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link-8>External Resource</a><td><em>not allowed</em><td class=yes> Yes <td>Specifies that the user agent should preemptively <a href=https://fetch.spec.whatwg.org/#concept-fetch id=linkTypes:concept-fetch-3 data-x-internal=concept-fetch>fetch</a> the target resource and process it in a way that helps deliver a faster response in the future.<tr><td><code id=linkTypes:link-type-prev><a href=#link-type-prev>prev</a></code><td><a href=#hyperlink id=linkTypes:hyperlink-13>Hyperlink</a><td><a href=#hyperlink id=linkTypes:hyperlink-14>Hyperlink</a><td class=no> · <td>Indicates that the current document is a part of a series, and that the previous document in the series is the referenced document.<tr><td><code id=linkTypes:link-type-search><a href=#link-type-search>search</a></code><td><a href=#hyperlink id=linkTypes:hyperlink-15>Hyperlink</a><td><a href=#hyperlink id=linkTypes:hyperlink-16>Hyperlink</a><td class=no> · <td>Gives a link to a resource that can be used to search through the current document and its related pages.<tr><td><code id=linkTypes:link-type-stylesheet-2><a href=#link-type-stylesheet>stylesheet</a></code><td><a href=#external-resource-link id=linkTypes:external-resource-link-9>External Resource</a><td><em>not allowed</em><td class=yes> Yes <td>Imports a style sheet.<tr><td><code id=linkTypes:link-type-tag><a href=#link-type-tag>tag</a></code><td><em>not allowed</em><td><a href=#hyperlink id=linkTypes:hyperlink-17>Hyperlink</a><td class=no> · <td>Gives a tag (identified by the given address) that applies to the current document.</table>
+
+  
+
+
+  <h5 id=rel-alternate><span class=secno>4.6.5.1</span> Link type "<dfn><code>alternate</code></dfn>"<a href=#rel-alternate class=self-link></a></h5>
+<div data-en-date="Sun Apr 09 2017 22:32:44 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-alternate.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-alternate.zh.html?filename=link-type-alternate.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-alternate.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=rel-alternate:rel-alternate><a href=#rel-alternate>alternate</a></code> keyword may be used with <code id=rel-alternate:link-元素><a href=semantics.html#link-元素>link</a></code>,
+  <code id=rel-alternate:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code>, and <code id=rel-alternate:the-area-element><a href=image-maps.html#the-area-element>area</a></code> elements.</p>
+
+  <p>The meaning of this keyword depends on the values of the other attributes.</p>
+
+  <dl class=switch><dt>If the element is a <code id=rel-alternate:link-元素-2><a href=semantics.html#link-元素>link</a></code> element and the <code id=rel-alternate:attr-link-rel><a href=semantics.html#attr-link-rel>rel</a></code>
+   attribute also contains the keyword <code id=rel-alternate:link-type-stylesheet><a href=#link-type-stylesheet>stylesheet</a></code><dd>
+
+    <p>The <code id=rel-alternate:rel-alternate-2><a href=#rel-alternate>alternate</a></code> keyword modifies the meaning of the <code id=rel-alternate:link-type-stylesheet-2><a href=#link-type-stylesheet>stylesheet</a></code> keyword in the way described for that keyword. The
+    <code id=rel-alternate:rel-alternate-3><a href=#rel-alternate>alternate</a></code> keyword does not create a link of its own.</p>
+
+    <div class=example>
+
+     <p>Here, a set of <code id=rel-alternate:link-元素-3><a href=semantics.html#link-元素>link</a></code> elements provide some style sheets:</p>
+
+     <pre>&lt;!-- a persistent style sheet -->
+&lt;link rel="stylesheet" href="default.css">
+
+&lt;!-- the preferred alternate style sheet -->
+&lt;link rel="stylesheet" href="green.css" title="Green styles">
+
+&lt;!-- some alternate style sheets -->
+&lt;link rel="alternate stylesheet" href="contrast.css" title="High contrast">
+&lt;link rel="alternate stylesheet" href="big.css" title="Big fonts">
+&lt;link rel="alternate stylesheet" href="wide.css" title="Wide screen"></pre>
+
+    </div>
+
+   <dt>If the <code id=rel-alternate:rel-alternate-4><a href=#rel-alternate>alternate</a></code> keyword is used with the <code id=rel-alternate:attr-hyperlink-type><a href=#attr-hyperlink-type>type</a></code> attribute set to the value <code>application/rss+xml</code> or the value <code>application/atom+xml</code><dd>
+
+    <p>The keyword creates a <a href=#hyperlink id=rel-alternate:hyperlink>hyperlink</a> referencing a syndication feed (though not
+    necessarily syndicating exactly the same content as the current page).</p>
+
+    
+
+    <div class=example>
+     <p>The following <code id=rel-alternate:link-元素-4><a href=semantics.html#link-元素>link</a></code> elements give syndication feeds for a blog:</p>
+
+     <pre>&lt;link rel="alternate" type="application/atom+xml" href="posts.xml" title="Cool Stuff Blog">
+&lt;link rel="alternate" type="application/atom+xml" href="posts.xml?category=robots" title="Cool Stuff Blog: robots category">
+&lt;link rel="alternate" type="application/atom+xml" href="comments.xml" title="Cool Stuff Blog: Comments"></pre>
+
+     <p>Such <code id=rel-alternate:link-元素-5><a href=semantics.html#link-元素>link</a></code> elements would be used by user agents engaged in feed autodiscovery,
+     with the first being the default (where applicable).</p>
+
+     <p>The following example offers various different syndication feeds to the user, using
+     <code id=rel-alternate:the-a-element-2><a href=text-level-semantics.html#the-a-element>a</a></code> elements:</p>
+
+     <pre>&lt;p>You can access the planets database using Atom feeds:&lt;/p>
+&lt;ul>
+ &lt;li>&lt;a href="recently-visited-planets.xml" rel="alternate" type="application/atom+xml">Recently Visited Planets&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="known-bad-planets.xml" rel="alternate" type="application/atom+xml">Known Bad Planets&lt;/a>&lt;/li>
+ &lt;li>&lt;a href="unexplored-planets.xml" rel="alternate" type="application/atom+xml">Unexplored Planets&lt;/a>&lt;/li>
+&lt;/ul></pre>
+
+     <p>These links would not be used in feed autodiscovery.</p>
+    </div>
+
+   <dt>Otherwise<dd>
+
+    <p>The keyword creates a <a href=#hyperlink id=rel-alternate:hyperlink-2>hyperlink</a> referencing an alternate representation of the
+    current document.</p>
+
+    <p>The nature of the referenced document is given by the <code id=rel-alternate:attr-hyperlink-hreflang><a href=#attr-hyperlink-hreflang>hreflang</a></code>, and <code id=rel-alternate:attr-hyperlink-type-2><a href=#attr-hyperlink-type>type</a></code> attributes.</p>
+
+    <p>If the <code id=rel-alternate:rel-alternate-5><a href=#rel-alternate>alternate</a></code> keyword is used with the <code id=rel-alternate:attr-hyperlink-hreflang-2><a href=#attr-hyperlink-hreflang>hreflang</a></code> attribute, and that attribute's value differs
+    from the <a id=rel-alternate:document-element href=https://dom.spec.whatwg.org/#document-element data-x-internal=document-element>document element</a>'s <span>language</span>, it indicates that the referenced
+    document is a translation.</p>
+
+    <p>If the <code id=rel-alternate:rel-alternate-6><a href=#rel-alternate>alternate</a></code> keyword is used with the <code id=rel-alternate:attr-hyperlink-type-3><a href=#attr-hyperlink-type>type</a></code> attribute, it indicates that the referenced document is
+    a reformulation of the current document in the specified format.</p>
+
+    <p>The <code id=rel-alternate:attr-hyperlink-hreflang-3><a href=#attr-hyperlink-hreflang>hreflang</a></code> and <code id=rel-alternate:attr-hyperlink-type-4><a href=#attr-hyperlink-type>type</a></code> attributes can be combined when specified with the <code id=rel-alternate:rel-alternate-7><a href=#rel-alternate>alternate</a></code> keyword.</p>
+
+    <div class=example>
+
+     <p>The following example shows how you can specify versions of the page that use alternative
+     formats, are aimed at other languages, and that are intended for other media:</p>
+
+     <pre>&lt;link rel=alternate href="/en/html" hreflang=en type=text/html title="English HTML">
+&lt;link rel=alternate href="/fr/html" hreflang=fr type=text/html title="French HTML">
+&lt;link rel=alternate href="/en/html/print" hreflang=en type=text/html media=print title="English HTML (for printing)">
+&lt;link rel=alternate href="/fr/html/print" hreflang=fr type=text/html media=print title="French HTML (for printing)">
+&lt;link rel=alternate href="/en/pdf" hreflang=en type=application/pdf title="English PDF">
+&lt;link rel=alternate href="/fr/pdf" hreflang=fr type=application/pdf title="French PDF"></pre>
+
+    </div>
+
+    <p>This relationship is transitive — that is, if a document links to two other documents
+    with the link type "<code id=rel-alternate:rel-alternate-8><a href=#rel-alternate>alternate</a></code>", then, in addition to implying
+    that those documents are alternative representations of the first document, it is also implying
+    that those two documents are alternative representations of each other.</p>
+
+   </dl>
+
+
+
+  <h5 id=link-type-author><span class=secno>4.6.5.2</span> "<dfn><code>author</code></dfn>" 链接类型<a href=#link-type-author class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-author.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-author.zh.html></div>
+
+  <p><code id=link-type-author:link-type-author><a href=#link-type-author>author</a></code> 关键字可用于 <code id=link-type-author:link-元素><a href=semantics.html#link-元素>link</a></code>，<code id=link-type-author:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和
+  <code id=link-type-author:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。该关键字会创建一个 <a href=#hyperlink id=link-type-author:hyperlink>超链接</a>。</p>
+
+  <p>对于 <code id=link-type-author:the-a-element-2><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id=link-type-author:the-area-element-2><a href=image-maps.html#the-area-element>area</a></code> 元素，<code id=link-type-author:link-type-author-2><a href=#link-type-author>author</a></code>
+  关键字表示被引用的文档提供了离定义该超链接的元素最近的祖先 <code id=link-type-author:the-article-element><a href=sections.html#the-article-element>article</a></code> 元素的作者的更多信息，
+  如果没有这样的祖先元素，就是指整个页面的作者。</p>
+
+  <p>对于 <code id=link-type-author:link-元素-2><a href=semantics.html#link-元素>link</a></code> 元素，<code id=link-type-author:link-type-author-3><a href=#link-type-author>author</a></code> 关键字表示被引用文档提供了
+  关于整个页面的作者的更多信息。</p>
+
+  <p class=note>"被引用文档" 可以是（也经常是）一个 <code id=link-type-author:mailto-protocol><a data-x-internal=mailto-protocol href=https://tools.ietf.org/html/rfc6068#section-2>mailto:</a></code> URL 给出了作者的 e-mail 地址。<a href=references.html#refsMAILTO>[MAILTO]</a></p>
+
+  
+
+
+  <h5 id=link-type-bookmark><span class=secno>4.6.5.3</span> "<dfn><code>bookmark</code></dfn>" 链接类型<a href=#link-type-bookmark class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-bookmark.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-bookmark.zh.html></div>
+
+  <p><code id=link-type-bookmark:link-type-bookmark><a href=#link-type-bookmark>bookmark</a></code> 关键字可用于 <code id=link-type-bookmark:link-元素><a href=semantics.html#link-元素>link</a></code>，<code id=link-type-bookmark:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和
+  <code id=link-type-bookmark:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。该关键字会创建一个 <a href=#hyperlink id=link-type-bookmark:hyperlink>超链接</a>。</p>
+
+  <p><code id=link-type-bookmark:link-type-bookmark-2><a href=#link-type-bookmark>bookmark</a></code> 关键字给出了这个链接元素最近的祖先 <code id=link-type-bookmark:the-article-element><a href=sections.html#the-article-element>article</a></code>
+  元素的永久链接。如果没有祖先 <code id=link-type-bookmark:the-article-element-2><a href=sections.html#the-article-element>article</a></code> 元素的话，就是指
+  <a href=#associatedSection>这个链接元素关联最紧密的 section </a>。</p>
+
+  <div class=example>
+
+   <p>下面的片段有三个永久链接。用户代理通过给出永久链接的位置来确定每个部分对应的永久链接。</p>
+
+   <pre> ...
+ &lt;body>
+  &lt;h1>Example of permalinks&lt;/h1>
+  &lt;div id="a">
+   &lt;h2>First example&lt;/h2>
+   &lt;p>&lt;a href="a.html" rel="bookmark">This permalink applies to
+   only the content from the first H2 to the second H2&lt;/a>. The DIV isn't
+   exactly that section, but it roughly corresponds to it.&lt;/p>
+  &lt;/div>
+  &lt;h2>Second example&lt;/h2>
+  &lt;article id="b">
+   &lt;p>&lt;a href="b.html" rel="bookmark">This permalink applies to
+   the outer ARTICLE element&lt;/a> (which could be, e.g., a blog post).&lt;/p>
+   &lt;article id="c">
+    &lt;p>&lt;a href="c.html" rel="bookmark">This permalink applies to
+    the inner ARTICLE element&lt;/a> (which could be, e.g., a blog comment).&lt;/p>
+   &lt;/article>
+  &lt;/article>
+ &lt;/body>
+ ...</pre>
+
+  </div>
+
+
+  <h5 id=link-type-canonical><span class=secno>4.6.5.4</span> Link type "<dfn><code>canonical</code></dfn>"<a href=#link-type-canonical class=self-link></a></h5>
+<div data-en-date="Mon May 01 2017 20:22:11 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-canonical.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-canonical.zh.html?filename=link-type-canonical.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-canonical.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=link-type-canonical:link-type-canonical><a href=#link-type-canonical>canonical</a></code> keyword may be used with <code id=link-type-canonical:link-元素><a href=semantics.html#link-元素>link</a></code>
+  element. This keyword creates a <a href=#hyperlink id=link-type-canonical:hyperlink>hyperlink</a>.</p>
+
+  <p>The <code id=link-type-canonical:link-type-canonical-2><a href=#link-type-canonical>canonical</a></code> keyword indicates that URL given by the <code id=link-type-canonical:attr-link-href><a href=semantics.html#attr-link-href>href</a></code> attribute is the preferred URL for the current document. That
+  helps search engines reduce duplicate content, as described in more detail in <cite>The Canonical
+  Link Relation</cite> specification. <a href=references.html#refsRFC6596>[RFC6596]</a></p>
+
+
+  <h5 id=link-type-dns-prefetch><span class=secno>4.6.5.5</span> "<dfn><code>dns-prefetch</code></dfn>" 链接类型<a href=#link-type-dns-prefetch class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-dns-prefetch.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-dns-prefetch.zh.html></div>
+
+  <p><code id=link-type-dns-prefetch:link-type-dns-prefetch><a href=#link-type-dns-prefetch>dns-prefetch</a></code> 关键字可用于
+  <code id=link-type-dns-prefetch:link-元素><a href=semantics.html#link-元素>link</a></code> 元素。该关键字会创建
+  <a href=#external-resource-link id=link-type-dns-prefetch:external-resource-link>外部资源链接</a>。
+  这个关键字是 <a href=#body-ok id=link-type-dns-prefetch:body-ok>body-ok</a> 的。</p>
+
+  <p><code id=link-type-dns-prefetch:link-type-dns-prefetch-2><a href=#link-type-dns-prefetch>dns-prefetch</a></code> 关键字表示最好为指定资源的
+  <a href=origin.html#concept-origin id=link-type-dns-prefetch:concept-origin>域</a> 事先执行 DNS 解析，因为用户很可能会要位于那个
+  <a href=origin.html#concept-origin id=link-type-dns-prefetch:concept-origin-2>域</a> 的资源，避免了 DNS 解析相关的延迟会提升用户体验。
+  
+  <a href=references.html#refsRESOURCEHINTS>[RESOURCEHINTS]</a></p>
+
+  <p><code id=link-type-dns-prefetch:link-type-dns-prefetch-3><a href=#link-type-dns-prefetch>dns-prefetch</a></code> 关键字没有默认的资源类型。</p>
+  <h5 id=link-type-external><span class=secno>4.6.5.6</span> "<dfn><code>external</code></dfn>" 链接类型<a href=#link-type-external class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-external.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-external.zh.html></div>
+  
+
+  <p><code id=link-type-external:link-type-external><a href=#link-type-external>external</a></code> 关键字可用于 <code id=link-type-external:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和
+  <code id=link-type-external:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。该元素不会创建 <a href=#hyperlink id=link-type-external:hyperlink>超链接</a>，但可以 <a href=#hyperlink-annotation id=link-type-external:hyperlink-annotation>注释</a> 该元素创建的任何其他超链接
+  （如果其他关键字没有创建超链接的话就是注释暗示的超链接）。</p>
+
+  <p><code id=link-type-external:link-type-external-2><a href=#link-type-external>external</a></code> 关键字表示该链接指向的文档不是当前文档所属站点的一部分。</p>
+
+
+  <h5 id=link-type-help><span class=secno>4.6.5.7</span> "<dfn><code>help</code></dfn>" 链接类型<a href=#link-type-help class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-help.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-help.zh.html></div>
+
+  <p><code id=link-type-help:link-type-help><a href=#link-type-help>help</a></code> 关键字可用于 <code id=link-type-help:link-元素><a href=semantics.html#link-元素>link</a></code>，<code id=link-type-help:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和
+  <code id=link-type-help:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。该关键字会创建一个 <a href=#hyperlink id=link-type-help:hyperlink>超链接</a>。</p>
+
+  <p>对于 <code id=link-type-help:the-a-element-2><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id=link-type-help:the-area-element-2><a href=image-maps.html#the-area-element>area</a></code> 元素，<code id=link-type-help:link-type-help-2><a href=#link-type-help>help</a></code>
+  关键字表示被引用文档为定义了该超链接的父元素及其子元素提供了更多帮助信息。</p>
+
+  <div class=example>
+
+   <p>在下面的例子中，表单控件关联了上下文相关的帮助。用户代理可以使用这个信息，
+   比如用户按下 “Help” 或 “F1” 键时可以显示被引用的文档。</p>
+
+   <pre> &lt;p>&lt;label> Topic: &lt;input name=topic> &lt;a href="help/topic.html" rel="help">(Help)&lt;/a>&lt;/label>&lt;/p></pre>
+
+  </div>
+
+  <p>对于 <code id=link-type-help:link-元素-2><a href=semantics.html#link-元素>link</a></code> 元素，这个 <code id=link-type-help:link-type-help-3><a href=#link-type-help>help</a></code> 关键字表示
+  被引用的文档为整个页面提供了帮助。</p>
+
+  <p>对于 <code id=link-type-help:the-a-element-3><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id=link-type-help:the-area-element-3><a href=image-maps.html#the-area-element>area</a></code> 元素，在有些浏览器中 <code id=link-type-help:link-type-help-4><a href=#link-type-help>help</a></code> 关键字会使链接显示不同的光标。</p>
+
+
+  <h5 id=rel-icon><span class=secno>4.6.5.8</span> Link type "<dfn><code>icon</code></dfn>"<a href=#rel-icon class=self-link></a></h5><div class=status><input onclick=toggleStatus(this) value=⋰ type=button><p class=support><strong>Support:</strong> link-icon-png<span class="and_chr yes"><span>Chrome for Android</span> <span>64+</span></span><span class="chrome yes"><span>Chrome</span> <span>4+</span></span><span class="ios_saf no"><span>iOS Safari</span> <span>None</span></span><span class="and_uc yes"><span>UC Browser for Android</span> <span>11.8+</span></span><span class="firefox yes"><span>Firefox</span> <span>2+</span></span><span class="ie yes"><span>IE</span> <span>11+</span></span><span class="samsung yes"><span>Samsung Internet</span> <span>4+</span></span><span class="op_mini no"><span>Opera Mini</span> <span>None</span></span><span class="safari yes"><span>Safari</span> <span>3.1+</span></span><span class="edge yes"><span>Edge</span> <span>12+</span></span><span class="android yes"><span>Android Browser</span> <span>2.1+</span></span><span class="opera yes"><span>Opera</span> <span>9+</span></span><p class=caniuse>Source: <a href="https://caniuse.com/#feat=link-icon-png">caniuse.com</a></div>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-icon.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-icon.zh.html?filename=link-type-icon.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-icon.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=rel-icon:rel-icon><a href=#rel-icon>icon</a></code> keyword may be used with <code id=rel-icon:link-元素><a href=semantics.html#link-元素>link</a></code> elements.
+  This keyword creates an <a href=#external-resource-link id=rel-icon:external-resource-link>external resource link</a>.</p>
+
+  
+
+  <p>Icons could be auditory icons, visual icons, or other kinds of icons. </p>
+
+  
+
+  <p>The <code id=rel-icon:attr-link-sizes><a href=semantics.html#attr-link-sizes>sizes</a></code> keywords represent icon sizes in raw pixels (as
+  opposed to <a href=https://drafts.csswg.org/css-values/#px id="rel-icon:'px'" data-x-internal="'px'">CSS pixels</a>).</p>
+
+  <p class=note>An icon that is 50 <a href=https://drafts.csswg.org/css-values/#px id="rel-icon:'px'-2" data-x-internal="'px'">CSS pixels</a> wide intended for
+  displays with a device pixel density of two device pixels per <a href=https://drafts.csswg.org/css-values/#px id="rel-icon:'px'-3" data-x-internal="'px'">CSS pixel</a>
+  (2x, 192dpi) would have a width of 100 raw pixels. This feature does not support indicating that a
+  different resource is to be used for small high-resolution icons vs large low-resolution icons
+  (e.g. 50×50 2x vs 100×100 1x).</p>
+
+  
+
+  <p>The <dfn id=attr-link-sizes-any><code>any</code></dfn> keyword represents that the
+  resource contains a scalable icon, e.g. as provided by an SVG image.</p>
+
+  
+
+  <p>The keywords specified on the <code id=rel-icon:attr-link-sizes-2><a href=semantics.html#attr-link-sizes>sizes</a></code> attribute must not
+  represent icon sizes that are not actually available in the linked resource.</p>
+
+  
+
+  <div class=example>
+
+   <p>The following snippet shows the top part of an application with several icons.</p>
+
+   <pre>&lt;!DOCTYPE HTML>
+&lt;html lang="en">
+ &lt;head>
+  &lt;title>lsForums — Inbox&lt;/title>
+  &lt;link rel=icon href=favicon.png sizes="16x16" type="image/png">
+  &lt;link rel=icon href=windows.ico sizes="32x32 48x48" type="image/vnd.microsoft.icon">
+  &lt;link rel=icon href=mac.icns sizes="128x128 512x512 8192x8192 32768x32768">
+  &lt;link rel=icon href=iphone.png sizes="57x57" type="image/png">
+  &lt;link rel=icon href=gnome.svg sizes="any" type="image/svg+xml">
+  &lt;link rel=stylesheet href=lsforums.css>
+  &lt;script src=lsforums.js>&lt;/script>
+  &lt;meta name=application-name content="lsForums">
+ &lt;/head>
+ &lt;body>
+  ...</pre>
+
+  </div>
+
+  <p>For historical reasons, the <code id=rel-icon:rel-icon-2><a href=#rel-icon>icon</a></code> keyword may be preceded by the
+  keyword "<code>shortcut</code>". If the "<code>shortcut</code>" keyword is
+  present, the <code id=rel-icon:attr-hyperlink-rel><a href=#attr-hyperlink-rel>rel</a></code> attribute's entire value must be an
+  <a id=rel-icon:ascii-case-insensitive href=https://infra.spec.whatwg.org/#ascii-case-insensitive data-x-internal=ascii-case-insensitive>ASCII case-insensitive</a> match for the string "<code>shortcut icon</code>" (with a single U+0020 SPACE character between the tokens and
+  no other <a id=rel-icon:space-characters href=https://infra.spec.whatwg.org/#ascii-whitespace data-x-internal=space-characters>ASCII whitespace</a>).</p>
+
+
+  <h5 id=link-type-license><span class=secno>4.6.5.9</span> "<dfn><code>license</code></dfn>" 链接类型<a href=#link-type-license class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-license.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-license.zh.html></div>
+
+  <p><code id=link-type-license:link-type-license><a href=#link-type-license>license</a></code> 关键字可用于 <code id=link-type-license:link-元素><a href=semantics.html#link-元素>link</a></code>，<code id=link-type-license:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和
+  <code id=link-type-license:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。该关键字会创建一个 <a href=#hyperlink id=link-type-license:hyperlink>超链接</a>。</p>
+
+  <p><code id=link-type-license:link-type-license-2><a href=#link-type-license>license</a></code>
+  关键字表示被引用文档提供了当前文档中主要内容的版权许可条款。</p>
+
+  <p>本规范未指定如何区分文档中的主要内容和不被视为该主要内容的部分。
+  应该让用户能够明确这个区分。</p>
+
+  <div class=example>
+
+   <p>考虑一个相片分享网站。这个站点的一个页面可能会描述并显示一张照片，这个页面可能是这样写的：</p>
+
+   <pre>&lt;!DOCTYPE HTML>
+&lt;html lang="en">
+ &lt;head>
+  &lt;title>Exampl Pictures: Kissat&lt;/title>
+  &lt;link rel="stylesheet" href="/style/default">
+ &lt;/head>
+ &lt;body>
+  &lt;h1>Kissat&lt;/h1>
+  &lt;nav>
+   &lt;a href="../">Return to photo index&lt;/a>
+  &lt;/nav>
+  &lt;figure>
+   &lt;img src="/pix/39627052_fd8dcd98b5.jpg">
+   &lt;figcaption>Kissat&lt;/figcaption>
+  &lt;/figure>
+  &lt;p>One of them has six toes!&lt;/p>
+  &lt;p>&lt;small>&lt;a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT Licensed&lt;/a>&lt;/small>&lt;/p>
+  &lt;footer>
+   &lt;a href="/">Home&lt;/a> | &lt;a href="../">Photo index&lt;/a>
+   &lt;p>&lt;small>© copyright 2009 Exampl Pictures. All Rights Reserved.&lt;/small>&lt;/p>
+  &lt;/footer>
+ &lt;/body>
+&lt;/html></pre>
+
+   <p>这个例子中 <code id=link-type-license:link-type-license-3><a href=#link-type-license>license</a></code> 只适用于这张照片
+   （该文档的主要内容）而不是整个文档。尤其不是页面的设计本身，它的版权在文档底部给出。
+   这可以通过样式来表达清楚（例如让许可链接贴着照片，同时把页面的版权以细小的文字放在页底）。</p>
+
+  </div>
+
+  
+
+
+  <h5 id=link-type-modulepreload><span class=secno>4.6.5.10</span> Link type "<dfn><code>modulepreload</code></dfn>"<a href=#link-type-modulepreload class=self-link></a></h5>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-modulepreload.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-modulepreload.zh.html?filename=link-type-modulepreload.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-modulepreload.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=link-type-modulepreload:link-type-modulepreload><a href=#link-type-modulepreload>modulepreload</a></code> keyword may be used with
+  <code id=link-type-modulepreload:link-元素><a href=semantics.html#link-元素>link</a></code> elements. This keyword creates an <a href=#external-resource-link id=link-type-modulepreload:external-resource-link>external resource link</a>. This
+  keyword is <a href=#body-ok id=link-type-modulepreload:body-ok>body-ok</a>.</p>
+
+  <p>The <code id=link-type-modulepreload:link-type-modulepreload-2><a href=#link-type-modulepreload>modulepreload</a></code> keyword is a specialized alternative
+  to the <code id=link-type-modulepreload:link-type-preload><a href=#link-type-preload>preload</a></code> keyword, with a processing model geared toward
+  preloading <span>module scripts</span>. In particular, it uses the specific
+  fetch behavior for module scripts (including, e.g., a different interpretation of the <code id=link-type-modulepreload:attr-link-crossorigin><a href=semantics.html#attr-link-crossorigin>crossorigin</a></code> attribute), and places the result into the
+  appropriate <a href=dom.html#concept-document-module-map id=link-type-modulepreload:concept-document-module-map>module map</a> for later evaluation. In
+  contrast, a similar <a href=#external-resource-link id=link-type-modulepreload:external-resource-link-2>external resource link</a> using the <code id=link-type-modulepreload:link-type-preload-2><a href=#link-type-preload>preload</a></code> keyword would place the result in the preload cache, without
+  affecting the document's <a href=dom.html#concept-document-module-map id=link-type-modulepreload:concept-document-module-map-2>module map</a>.</p>
+
+  <p>Additionally, implementations can take advantage of the fact that <span>module scripts</span> declare their dependencies in order to fetch the specified module's
+  dependency as well. This is intended as an optimization opportunity, since the user agent knows
+  that, in all likelihood, those dependencies will also be needed later. It will not generally be
+  observable without using technology such as service workers, or monitoring on the server side.
+  Notably, the appropriate <code id=link-type-modulepreload:event-load><a href=indices.html#event-load>load</a></code> or <code id=link-type-modulepreload:event-error><a href=indices.html#event-error>error</a></code> events will occur after the specified module is fetched, and
+  will not wait for any dependencies.</p>
+
+  
+
+  <p class=note>Unlike some other link relations, changing the relevant attributes (such as <code id=link-type-modulepreload:attr-link-as><a href=semantics.html#attr-link-as>as</a></code>, <code id=link-type-modulepreload:attr-link-crossorigin-2><a href=semantics.html#attr-link-crossorigin>crossorigin</a></code>, and
+  <code id=link-type-modulepreload:attr-link-referrerpolicy><a href=semantics.html#attr-link-referrerpolicy>referrerpolicy</a></code>) of such a <code id=link-type-modulepreload:link-元素-2><a href=semantics.html#link-元素>link</a></code>
+  attribute does not trigger a new fetch. This is because the document's <a href=dom.html#concept-document-module-map id=link-type-modulepreload:concept-document-module-map-3>module map</a> has already been populated by a previous
+  fetch, and so re-fetching would be pointless.</p>
+
+  
+
+  <div id=example-modulepreload-manifest class=example>
+   <p>The following snippet shows the top part of an application with several modules preloaded:</p>
+
+   <pre>&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;title>IRCFog&lt;/title>
+
+&lt;link rel="modulepreload" href="app.mjs">
+&lt;link rel="modulepreload" href="helpers.mjs">
+&lt;link rel="modulepreload" href="irc.mjs">
+&lt;link rel="modulepreload" href="fog-machine.mjs">
+
+&lt;script type="module" src="app.mjs">
+...</pre>
+
+   <p>Assume that the module graph for the application is as follows:</p>
+
+   <img alt="The module graph is rooted at app.mjs, which depends on irc.mjs and fog-machine.mjs. In turn, irc.mjs depends on helpers.mjs." src=images/ircfog-modules.svg width=301 height=151>
+
+   <p>Here we see the application developer has used <code id=link-type-modulepreload:link-type-modulepreload-3><a href=#link-type-modulepreload>modulepreload</a></code> all of the modules in their module graph,
+   ensuring that the user agent initiates fetches for them all. Without such preloading, the user
+   agent might need to go through multiple network roundtrips before discovering <code>helpers.mjs</code>, if technologies such as HTTP/2 Server Push are not in play. In
+   this way, <code id=link-type-modulepreload:link-type-modulepreload-4><a href=#link-type-modulepreload>modulepreload</a></code> <code id=link-type-modulepreload:link-元素-3><a href=semantics.html#link-元素>link</a></code> elements can be
+   used as a sort of "manifest" of the application's modules.</p>
+  </div>
+
+  <div id=example-modulepreload-dynamic-import class=example>
+   <p>The following code shows how <code id=link-type-modulepreload:link-type-modulepreload-5><a href=#link-type-modulepreload>modulepreload</a></code> links can
+   be used in conjunction with <code id=link-type-modulepreload:import()><a data-x-internal=import() href=https://tc39.github.io/proposal-dynamic-import/#sec-import-calls>import()</a></code> to ensure network fetching is done ahead of
+   time, so that when <code id=link-type-modulepreload:import()-2><a data-x-internal=import() href=https://tc39.github.io/proposal-dynamic-import/#sec-import-calls>import()</a></code> is called, the module is already ready (but not
+   evaluated) in the <span>module map</span>:</p>
+
+   <pre>&lt;link rel="modulepreload" href="awesome-viewer.js">
+
+&lt;button onclick="import('./awesome-viewer.js').then(m => m.view())">
+  View awesome thing
+&lt;/button></pre>
+  </div>
+
+  <h5 id=link-type-nofollow><span class=secno>4.6.5.11</span> "<dfn><code>nofollow</code></dfn>" 链接类型<a href=#link-type-nofollow class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-nofollow.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-nofollow.zh.html></div>
+
+  <p><code id=link-type-nofollow:link-type-nofollow><a href=#link-type-nofollow>nofollow</a></code> 关键字可用于 <code id=link-type-nofollow:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和
+  <code id=link-type-nofollow:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。这个关键字不会创建 <a href=#hyperlink id=link-type-nofollow:hyperlink>超链接</a>，但是可以 <a href=#hyperlink-annotation id=link-type-nofollow:hyperlink-annotation>注释</a> 任何其他该元素创建的超链接。
+  （如果没有其他关键字创建链接，那就注释其隐含的超链接）。</p>
+
+  <p><code id=link-type-nofollow:link-type-nofollow-2><a href=#link-type-nofollow>nofollow</a></code> 关键字表示该链接不被该网页的原始作者或发布者所认可，
+  或者这个指向被引用文档的链接主要是为了这两个页面的所有者之间的商业关系。</p>
+
+
+  <h5 id=link-type-noopener><span class=secno>4.6.5.12</span> Link type "<dfn><code>noopener</code></dfn>"<a href=#link-type-noopener class=self-link></a></h5><div class=status><input onclick=toggleStatus(this) value=⋰ type=button><p class=support><strong>Support:</strong> rel-noopener<span class="and_chr yes"><span>Chrome for Android</span> <span>64+</span></span><span class="chrome yes"><span>Chrome</span> <span>49+</span></span><span class="ios_saf yes"><span>iOS Safari</span> <span>10.3+</span></span><span class="and_uc yes"><span>UC Browser for Android</span> <span>11.8+</span></span><span class="firefox yes"><span>Firefox</span> <span>52+</span></span><span class="ie no"><span>IE</span> <span>None</span></span><span class="samsung yes"><span>Samsung Internet</span> <span>5+</span></span><span class="op_mini no"><span>Opera Mini</span> <span>None</span></span><span class="safari yes"><span>Safari</span> <span>10.1+</span></span><span class="edge no"><span>Edge</span> <span>None</span></span><span class="android yes"><span>Android Browser</span> <span>62+</span></span><span class="opera yes"><span>Opera</span> <span>36+</span></span><p class=caniuse>Source: <a href="https://caniuse.com/#feat=rel-noopener">caniuse.com</a></div>
+<div data-en-date="Sun Feb 25 2018 22:54:16 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-noopener.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-noopener.zh.html?filename=link-type-noopener.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-noopener.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=link-type-noopener:link-type-noopener><a href=#link-type-noopener>noopener</a></code> keyword may be used with <code id=link-type-noopener:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> and
+  <code id=link-type-noopener:the-area-element><a href=image-maps.html#the-area-element>area</a></code> elements. This keyword does not create a <a href=#hyperlink id=link-type-noopener:hyperlink>hyperlink</a>, but <a href=#hyperlink-annotation id=link-type-noopener:hyperlink-annotation>annotates</a> any other hyperlinks created by the element (the
+  implied hyperlink, if no other keywords create one).</p>
+
+  <p>The keyword indicates that any newly created <a id=link-type-noopener:browsing-context href=browsers.html#browsing-context>browsing context</a> which results from
+  following the <a href=#hyperlink id=link-type-noopener:hyperlink-2>hyperlink</a> will be <a id=link-type-noopener:disowned-its-opener href=browsers.html#disowned-its-opener>disowned</a>, which means that its <code id=link-type-noopener:dom-opener><a href=browsers.html#dom-opener>window.opener</a></code> attribute will be null.</p>
+
+
+  <h5 id=link-type-noreferrer><span class=secno>4.6.5.13</span> Link type "<dfn><code>noreferrer</code></dfn>"<a href=#link-type-noreferrer class=self-link></a></h5><div class=status><input onclick=toggleStatus(this) value=⋰ type=button><p class=support><strong>Support:</strong> rel-noreferrer<span class="and_chr yes"><span>Chrome for Android</span> <span>64+</span></span><span class="chrome yes"><span>Chrome</span> <span>16+</span></span><span class="ios_saf yes"><span>iOS Safari</span> <span>4.0+</span></span><span class="and_uc yes"><span>UC Browser for Android</span> <span>11.8+</span></span><span class="firefox yes"><span>Firefox</span> <span>33+</span></span><span class="ie partial"><span>IE (limited)</span> <span>11+</span></span><span class="samsung yes"><span>Samsung Internet</span> <span>4+</span></span><span class="op_mini no"><span>Opera Mini</span> <span>None</span></span><span class="safari yes"><span>Safari</span> <span>5+</span></span><span class="edge yes"><span>Edge</span> <span>13+</span></span><span class="android yes"><span>Android Browser</span> <span>2.3+</span></span><span class="opera yes"><span>Opera</span> <span>15+</span></span><p class=caniuse>Source: <a href="https://caniuse.com/#feat=rel-noreferrer">caniuse.com</a></div>
+<div data-en-date="Sun Feb 25 2018 22:54:16 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-noreferrer.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-noreferrer.zh.html?filename=link-type-noreferrer.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-noreferrer.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=link-type-noreferrer:link-type-noreferrer><a href=#link-type-noreferrer>noreferrer</a></code> keyword may be used with <code id=link-type-noreferrer:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> and
+  <code id=link-type-noreferrer:the-area-element><a href=image-maps.html#the-area-element>area</a></code> elements. This keyword does not create a <a href=#hyperlink id=link-type-noreferrer:hyperlink>hyperlink</a>, but <a href=#hyperlink-annotation id=link-type-noreferrer:hyperlink-annotation>annotates</a> any other hyperlinks created by the element (the
+  implied hyperlink, if no other keywords create one).</p>
+
+  <p>It indicates that no referrer information is to be leaked when following the link.</p>
+
+  
+
+
+  <h5 id=link-type-pingback><span class=secno>4.6.5.14</span> "<dfn><code>pingback</code></dfn>" 链接类型<a href=#link-type-pingback class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-pingback.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-pingback.zh.html></div>
+
+  <p><code id=link-type-pingback:link-type-pingback><a href=#link-type-pingback>pingback</a></code> 关键字可以用于 <code id=link-type-pingback:link-元素><a href=semantics.html#link-元素>link</a></code>
+  元素。该关键字会创建一个 <a href=#external-resource-link id=link-type-pingback:external-resource-link>外部资源链接</a>。
+  这个关键字是 <a href=#body-ok id=link-type-pingback:body-ok>body-ok</a> 的。</p>
+
+  <p>关于 <code id=link-type-pingback:link-type-pingback-2><a href=#link-type-pingback>pingback</a></code> 关键字的语义，参考 Pingback
+  1.0 规范。 <a href=references.html#refsPINGBACK>[PINGBACK]</a></p>
+
+
+  <h5 id=link-type-preconnect><span class=secno>4.6.5.15</span> "<dfn><code>preconnect</code></dfn> 链接类型"<a href=#link-type-preconnect class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-preconnect.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-preconnect.zh.html></div>
+
+  <p><code id=link-type-preconnect:link-type-preconnect><a href=#link-type-preconnect>preconnect</a></code> 关键字可用于 <code id=link-type-preconnect:link-元素><a href=semantics.html#link-元素>link</a></code> 元素。
+  该关键字会创建一个 <a href=#external-resource-link id=link-type-preconnect:external-resource-link>外部资源链接</a>。
+  这个关键字是 <a href=#body-ok id=link-type-preconnect:body-ok>body-ok</a> 的。</p>
+
+  <p><code id=link-type-preconnect:link-type-preconnect-2><a href=#link-type-preconnect>preconnect</a></code> 关键字表示最好事先初始化一个到指定资源的
+  <a href=origin.html#concept-origin id=link-type-preconnect:concept-origin>域</a> 的连接。因为用户很可能会访问处于这个
+  <a href=origin.html#concept-origin id=link-type-preconnect:concept-origin-2>域</a> 的资源，这省去了建立连接的延迟，所以会提升用户体验。
+   <a href=references.html#refsRESOURCEHINTS>[RESOURCEHINTS]</a></p>
+
+  <p><code id=link-type-preconnect:link-type-preconnect-3><a href=#link-type-preconnect>preconnect</a></code> 关键字给出的资源没有默认类型。</p>
+
+
+  <h5 id=link-type-prefetch><span class=secno>4.6.5.16</span> "<dfn><code>prefetch</code></dfn>" 链接类型<a href=#link-type-prefetch class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-prefetch.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-prefetch.zh.html></div>
+
+  <p><code id=link-type-prefetch:link-type-prefetch><a href=#link-type-prefetch>prefetch</a></code> 关键字可用于 <code id=link-type-prefetch:link-元素><a href=semantics.html#link-元素>link</a></code>
+  元素。该关键字会创建 <a href=#external-resource-link id=link-type-prefetch:external-resource-link>外部资源链接</a>。
+  这个关键在是 <a href=#body-ok id=link-type-prefetch:body-ok>body-ok</a> 的。</p>
+
+  <p><code id=link-type-prefetch:link-type-prefetch-2><a href=#link-type-prefetch>prefetch</a></code> 关键字表示最好事先
+  <a href=https://fetch.spec.whatwg.org/#concept-fetch id=link-type-prefetch:concept-fetch data-x-internal=concept-fetch>获取</a> 并缓存指定的资源。
+  因为用户在将来的导航中很可能会要这个资源。
+  
+  <a href=references.html#refsRESOURCEHINTS>[RESOURCEHINTS]</a></p>
+
+  <p><code id=link-type-prefetch:link-type-prefetch-3><a href=#link-type-prefetch>prefetch</a></code> 关键字没有默认的资源类型。</p>
+  <h5 id=link-type-preload><span class=secno>4.6.5.17</span> Link type "<dfn><code>preload</code></dfn>"<a href=#link-type-preload class=self-link></a></h5>
+<div data-en-date="Sun Jun 04 2017 13:26:57 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-preload.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-preload.zh.html?filename=link-type-preload.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-preload.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=link-type-preload:link-type-preload><a href=#link-type-preload>preload</a></code> keyword may be used with <code id=link-type-preload:link-元素><a href=semantics.html#link-元素>link</a></code>
+  elements. This keyword creates an <a href=#external-resource-link id=link-type-preload:external-resource-link>external resource
+  link</a>. This keyword is <a href=#body-ok id=link-type-preload:body-ok>body-ok</a>.</p>
+
+  <p>The <code id=link-type-preload:link-type-preload-2><a href=#link-type-preload>preload</a></code> keyword indicates that the user agent must
+  preemptively <a href=https://fetch.spec.whatwg.org/#concept-fetch id=link-type-preload:concept-fetch data-x-internal=concept-fetch>fetch</a> and cache the specified resource according
+  to the <a href=https://fetch.spec.whatwg.org/#concept-potential-destination id=link-type-preload:concept-potential-destination data-x-internal=concept-potential-destination>potential destination</a> given by the
+  <code id=link-type-preload:attr-link-as><a href=semantics.html#attr-link-as>as</a></code> attribute (and the <a href=https://fetch.spec.whatwg.org/#concept-request-priority id=link-type-preload:concept-request-priority data-x-internal=concept-request-priority>priority</a> associated with the <a href=https://fetch.spec.whatwg.org/#concept-potential-destination-translate id=link-type-preload:concept-potential-destination-translate data-x-internal=concept-potential-destination-translate>corresponding</a> <a href=https://fetch.spec.whatwg.org/#concept-request-destination id=link-type-preload:concept-request-destination data-x-internal=concept-request-destination>destination</a>), as it is highly likely that the user
+  will require this resource for the current navigation.  <a href=references.html#refsPRELOAD>[PRELOAD]</a></p>
+
+  <p>There is no default type for resources given by the <code id=link-type-preload:link-type-preload-3><a href=#link-type-preload>preload</a></code>
+  keyword.</p>
+
+
+  <h5 id=link-type-prerender><span class=secno>4.6.5.18</span> "<dfn><code>prerender</code></dfn>" 链接类型<a href=#link-type-prerender class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-prerender.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-prerender.zh.html></div>
+
+  <p><code id=link-type-prerender:link-type-prerender><a href=#link-type-prerender>prerender</a></code> 关键字可用于 <code id=link-type-prerender:link-元素><a href=semantics.html#link-元素>link</a></code>
+  元素。该关键字会创建 <a href=#external-resource-link id=link-type-prerender:external-resource-link>外部资源链接</a>。
+  这个关键在是 <a href=#body-ok id=link-type-prerender:body-ok>body-ok</a> 的。</p>
+
+  <p><code id=link-type-prerender:link-type-prerender-2><a href=#link-type-prerender>prerender</a></code> 关键字表示指定的资源可能在下次导航时用到。
+  所以最好先去 <a href=https://fetch.spec.whatwg.org/#concept-fetch id=link-type-prerender:concept-fetch data-x-internal=concept-fetch>获取</a> 这个资源并处理它，
+  比如 <a href=https://fetch.spec.whatwg.org/#concept-fetch id=link-type-prerender:concept-fetch-2 data-x-internal=concept-fetch>获取</a> 它的子资源或执行一些渲染。
+  <a href=references.html#refsRESOURCEHINTS>[RESOURCEHINTS]</a></p>
+
+  <p><code id=link-type-prerender:link-type-prerender-3><a href=#link-type-prerender>prerender</a></code> 关键字没有默认的资源类型。</p>
+
+  <h5 id=link-type-search><span class=secno>4.6.5.19</span> Link type "<dfn><code>search</code></dfn>"<a href=#link-type-search class=self-link></a></h5>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-search.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-search.zh.html?filename=link-type-search.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-search.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=link-type-search:link-type-search><a href=#link-type-search>search</a></code> keyword may be used with <code id=link-type-search:link-元素><a href=semantics.html#link-元素>link</a></code>,
+  <code id=link-type-search:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code>, and <code id=link-type-search:the-area-element><a href=image-maps.html#the-area-element>area</a></code> elements. This keyword creates a <a href=#hyperlink id=link-type-search:hyperlink>hyperlink</a>.</p>
+
+  <p>The <code id=link-type-search:link-type-search-2><a href=#link-type-search>search</a></code> keyword indicates that the referenced document
+  provides an interface specifically for searching the document and its related resources.</p>
+
+  <p class=note>OpenSearch description documents can be used with <code id=link-type-search:link-元素-2><a href=semantics.html#link-元素>link</a></code> elements and
+  the <code id=link-type-search:link-type-search-3><a href=#link-type-search>search</a></code> link type to enable user agents to autodiscover search
+  interfaces. <a href=references.html#refsOPENSEARCH>[OPENSEARCH]</a></p>
+
+
+  <h5 id=link-type-stylesheet><span class=secno>4.6.5.20</span> Link type "<dfn><code>stylesheet</code></dfn>"<a href=#link-type-stylesheet class=self-link></a></h5>
+<div data-en-date="Thu May 17 2018 09:38:34 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-stylesheet.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/links/link-types/link-type-stylesheet.zh.html?filename=link-type-stylesheet.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Flinks%2Flink-types%2Flink-type-stylesheet.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=link-type-stylesheet:link-type-stylesheet><a href=#link-type-stylesheet>stylesheet</a></code> keyword may be used with <code id=link-type-stylesheet:link-元素><a href=semantics.html#link-元素>link</a></code>
+  elements. This keyword creates an <a href=#external-resource-link id=link-type-stylesheet:external-resource-link>external resource
+  link</a> that contributes to the styling processing model. This keyword is
+  <a href=#body-ok id=link-type-stylesheet:body-ok>body-ok</a>.</p>
+
+  <p>The specified resource is a CSS style sheet that describes how to present the document.</p>
+
+  <p>If the <code id=link-type-stylesheet:rel-alternate><a href=#rel-alternate>alternate</a></code> keyword is also specified on the
+  <code id=link-type-stylesheet:link-元素-2><a href=semantics.html#link-元素>link</a></code> element, then <dfn id=the-link-is-an-alternative-stylesheet>the link is an
+  alternative style sheet</dfn>; in this case, the <code id=link-type-stylesheet:attr-title><a href=dom.html#attr-title>title</a></code> attribute
+  must be specified on the <code id=link-type-stylesheet:link-元素-3><a href=semantics.html#link-元素>link</a></code> element, with a non-empty value.</p>
+
+  <p>The default type for resources given by the <code id=link-type-stylesheet:link-type-stylesheet-2><a href=#link-type-stylesheet>stylesheet</a></code>
+  keyword is <code id=link-type-stylesheet:text/css><a href=indices.html#text/css>text/css</a></code>.</p>
+
+  
+
+
+
+  <h5 id=link-type-tag><span class=secno>4.6.5.21</span> "<dfn><code>tag</code></dfn>" 链接类型<a href=#link-type-tag class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/link-type-tag.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/link-type-tag.zh.html></div>
+
+  <p><code id=link-type-tag:link-type-tag><a href=#link-type-tag>tag</a></code> 关键字可用于 <code id=link-type-tag:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和
+  <code id=link-type-tag:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。该关键字会创建一个 <a href=#hyperlink id=link-type-tag:hyperlink>超链接</a>。</p>
+
+  <p><code id=link-type-tag:link-type-tag-2><a href=#link-type-tag>tag</a></code> 关键字表示被引用的文档表示的 <em>tag</em>
+  适用于当前文档。</p>
+
+  <p class=note>由于它表示该 tag <em>适用于当前文档</em>,
+  在 <a href=semantics-other.html#tag-cloud>tag 云</a> 的标记中用这个关键字是不合适的，因为 tag 云列出了很多页面的 tag。</p>
+
+  <div class=example>
+
+   <p>本文档是关于宝石的，所以它有一个
+   "<code>https://en.wikipedia.org/wiki/Gemstone</code>"
+   <i>tag</i> 来把它归类到“珠宝”，而不是美国的城镇、Ruby 包格式，或瑞士机车分级：</p>
+
+   <pre>&lt;!DOCTYPE HTML>
+&lt;html lang="en">
+ &lt;head>
+  &lt;title>My Precious&lt;/title>
+ &lt;/head>
+ &lt;body>
+  &lt;header>&lt;h1>My precious&lt;/h1> &lt;p>Summer 2012&lt;/p>&lt;/header>
+  &lt;p>Recently I managed to dispose of a red gem that had been
+  bothering me. I now have a much nicer blue sapphire.&lt;/p>
+  &lt;p>The red gem had been found in a bauxite stone while I was digging
+  out the office level, but nobody was willing to haul it away. The
+  same red gem stayed there for literally years.&lt;/p>
+  &lt;footer>
+   Tags: &lt;a rel=tag href="https://en.wikipedia.org/wiki/Gemstone">Gemstone&lt;/a>
+  &lt;/footer>
+ &lt;/body>
+&lt;/html></pre>
+
+  </div>
+
+  <div class=example>
+
+   <p>在 <em>本</em> 文档中有两篇文章。但 "<code id=link-type-tag:link-type-tag-3><a href=#link-type-tag>tag</a></code>" 链接适用于整个页面
+   （不论它放在了哪里，以及是否在 <code id=link-type-tag:the-article-element><a href=sections.html#the-article-element>article</a></code> 元素中）。</p>
+
+   <pre>&lt;!DOCTYPE HTML>
+&lt;html lang="en">
+ &lt;head>
+  &lt;title>Gem 4/4&lt;/title>
+ &lt;/head>
+ &lt;body>
+  &lt;article>
+   &lt;h1>801: Steinbock&lt;/h1>
+   &lt;p>The number 801 Gem 4/4 electro-diesel has an ibex and was rebuilt in 2002.&lt;/p>
+  &lt;/article>
+  &lt;article>
+   &lt;h1>802: Murmeltier&lt;/h1>
+   &lt;figure>
+    &lt;img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Trains_de_la_Bernina_en_hiver_2.jpg"
+         alt="The 802 was red with pantographs and tall vents on the side.">
+    &lt;figcaption>The 802 in the 1980s, above Lago Bianco.&lt;/figcaption>
+   &lt;/figure>
+   &lt;p>The number 802 Gem 4/4 electro-diesel has a marmot and was rebuilt in 2003.&lt;/p>
+  &lt;/article>
+  &lt;p class="topic">&lt;a rel=tag href="https://en.wikipedia.org/wiki/Rhaetian_Railway_Gem_4/4">Gem 4/4&lt;/a>&lt;/p>
+ &lt;/body>
+&lt;/html></pre>
+
+  </div>
+
+
+
+  <h5 id="sequential link types"><span class=secno>4.6.5.22</span> 顺序链接类型<a href="#sequential link types" class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/sequential-link-types/index.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/sequential-link-types/index.zh.html></div>
+
+  <p>有些文档会组成一个文档序列。</p>
+
+  <p>文档序列是指，每个文档可以有一个 <em>前驱</em> 和一个 <em>后继</em>。
+  没有前驱的文档是其所在序列的开始文档，
+  没有后继的文档是其所在序列的结束文档。</p>
+
+  <p>一个文档可能属于多个序列。</p>
+
+
+  <h6 id=link-type-next><span class=secno>4.6.5.22.1</span> "<dfn><code>next</code></dfn>" 链接类型<a href=#link-type-next class=self-link></a></h6>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/sequential-link-types/link-type-next.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/sequential-link-types/link-type-next.zh.html></div>
+
+  <p><code id=link-type-next:link-type-next><a href=#link-type-next>next</a></code> 关键字可用于 <code id=link-type-next:link-元素><a href=semantics.html#link-元素>link</a></code>,
+  <code id=link-type-next:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id=link-type-next:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。该关键字会创建 <a href=#hyperlink id=link-type-next:hyperlink>超链接</a>。</p>
+
+  <p><code id=link-type-next:link-type-next-2><a href=#link-type-next>next</a></code> 关键字表示该文档是一个文档序列的一部分，
+  而且该链接指向逻辑上位于当前文档之后的那个文档。</p>
+
+  
+
+
+  <h6 id=link-type-prev><span class=secno>4.6.5.22.2</span> "<dfn><code>prev</code></dfn>" 链接类型<a href=#link-type-prev class=self-link></a></h6>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/sequential-link-types/link-type-prev.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/sequential-link-types/link-type-prev.zh.html></div>
+
+  <p><code id=link-type-prev:link-type-prev><a href=#link-type-prev>prev</a></code> 关键字可用于 <code id=link-type-prev:link-元素><a href=semantics.html#link-元素>link</a></code>,
+  <code id=link-type-prev:the-a-element><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id=link-type-prev:the-area-element><a href=image-maps.html#the-area-element>area</a></code> 元素。该关键字会创建 <a href=#hyperlink id=link-type-prev:hyperlink>超链接</a>。</p>
+
+  <p><code id=link-type-prev:link-type-prev-2><a href=#link-type-prev>prev</a></code> 关键字表示该文档是一个文档序列的一部分，
+  而且该链接指向逻辑上位于当前文档之前的那个文档。</p>
+
+  
+
+
+  <h5 id="other link types"><span class=secno>4.6.5.23</span> 其他链接类型<a href="#other link types" class=self-link></a></h5>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Sun Apr 22 2018 01:11:33 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/links/link-types/other-link-types.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/the-elements-of-html/links/link-types/other-link-types.zh.html></div>
+
+  <p><dfn id=concept-rel-extensions>预定义链接类型的扩展</dfn> 可以注册在
+  <a href=http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions>
+  microformats Wiki 已有的 rel 值页面</a>。 <a href=references.html#refsMFREL>[MFREL]</a></p>
+
+  <p>任何人在任何时候都可以编辑 <span>microformats Wiki 已有的 rel 值页面</span>
+  来增加一个类型。扩展类型必须指定以下信息：</p>
+
+  <dl><dt>关键字<dd>
+
+    <p>要定义的实际关键字。这个值不应与其他已定义的值相似以避免混淆。
+    （例如只有大小写不同）</p>
+
+    <p>如果值包含 U+003A COLON 字符（:），它就必须是一个 <a href=https://url.spec.whatwg.org/#syntax-url-absolute id="other link types:absolute-url" data-x-internal=absolute-url>绝对 URL</a>。</p>
+
+   <dt>作用于... <code id="other link types:link-元素"><a href=semantics.html#link-元素>link</a></code><dd>
+
+    <p>下面之一：</p>
+
+    <dl><dt>不允许<dd>改关键字不得在 <code id="other link types:link-元素-2"><a href=semantics.html#link-元素>link</a></code> 元素上指定。<dt>超链接<dd>该关键字可以在 <code id="other link types:link-元素-3"><a href=semantics.html#link-元素>link</a></code> 元素上指定；它会创建一个
+     <a href=#hyperlink id="other link types:hyperlink">超链接</a>。<dt>外部资源<dd>改关键字可以在 <code id="other link types:link-元素-4"><a href=semantics.html#link-元素>link</a></code> 元素上指定，它会创建一个
+     <a href=#external-resource-link id="other link types:external-resource-link">外部资源链接</a>。</dl>
+
+   <dt>作用于... <code id="other link types:the-a-element"><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id="other link types:the-area-element"><a href=image-maps.html#the-area-element>area</a></code><dd>
+
+    <p>下面之一：</p>
+
+    <dl><dt>不允许<dd>该关键字不得在 <code id="other link types:the-a-element-2"><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id="other link types:the-area-element-2"><a href=image-maps.html#the-area-element>area</a></code> 元素上指定。<dt>超链接<dd>该关键字可以在 <code id="other link types:the-a-element-3"><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id="other link types:the-area-element-3"><a href=image-maps.html#the-area-element>area</a></code> 元素上指定；它会创建一个
+     <a href=#hyperlink id="other link types:hyperlink-2">超链接</a>。<dt>外部资源<dd>该关键字可以在 <code id="other link types:the-a-element-4"><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id="other link types:the-area-element-4"><a href=image-maps.html#the-area-element>area</a></code> 元素上指定；它会创建一个
+     <a href=#external-resource-link id="other link types:external-resource-link-2">外部资源链接</a>。<dt>超链接注释<dd>该关键字可以在 <code id="other link types:the-a-element-5"><a href=text-level-semantics.html#the-a-element>a</a></code> 和 <code id="other link types:the-area-element-5"><a href=image-maps.html#the-area-element>area</a></code> 元素上指定；它用来 <a href=#hyperlink-annotation id="other link types:hyperlink-annotation">注释</a> 该元素创建的其他 <a href=#hyperlink id="other link types:hyperlink-3">超链接</a>。</dl>
+
+   <dt>简要描述<dd><p>对这个关键字的含义进行简短的非形式化的描述。<dt>规范<dd><p>指向对该关键字的语义和要求的更细节的描述的链接。
+   它可以是 Wiki 上的另一个页面，或者一个外部页面。<dt>同义词<dd><p>有着同样处理要求的其他关键字值的列表。
+   作者不应该使用已经定义为同义词的值，它们只是为了让用户代理支持旧的内容。
+   任何人都可以移除一个实践中已经不再使用的同义词
+   只有用于兼容旧内容的同义词才应该注册在这里。<dt>状态<dd>
+
+    <p>以下之一：</p>
+
+    <dl><dt>已提出<dd>该名称还没有接受广泛的 peer review 和 approval。有人提出了它并且正在用或者马上就要使用。<dt>已批准<dd>该名称已经接受了广泛的 peer review 和 approval。并且有一个标准明确地定义了如何处理使用了这个名称的页面，包括哪些使用方式是错误的。<dt>已终止<dd>该名称已经接受了广泛的peer review 并且被认为是有用的。现存的页面已经在使用这个名称，
+     但新的页面应该避免使用。 "简要说明" 和 "规范" 入口会给出作者应该用哪些替代品，如果有的话。</dl>
+
+    <p>如果一个关键字与其他现存的值冗余，那么应该把它移除并列为那个现存值的同义词。</p>
+
+    <p>如果一个关键字已经添加到 “已提议” 状态经过一个多月的时间并未被使用或标准化，
+    那么应该把它从注册中移除。</p>
+
+    <p>如果一个关键字已经添加到 “已提议” 状态但却与现存的值冗余，
+    就应该把它移除并列为该现存值的同义词。
+    如果一个名称被添加到 “已提议” 状态但被发现有害，则应该把它改为 “已终止” 状态。</p>
+
+    <p>任何人都可以随时更新状态，但应该根据上述定义进行。</p>
+
+   </dl>
+
+  
+
+  <p>
+  在 <a href=http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions>
+  microformats wiki 已有 rel 值页面</a> 中定义为扩展的类型，
+如果状态是 “已提议” 或 “已批准” 就可以根据 “作用于...” 字段用于
+  <code id="other link types:link-元素-5"><a href=semantics.html#link-元素>link</a></code> 的 <code>rel</code> 属性, <code id="other link types:the-a-element-6"><a href=text-level-semantics.html#the-a-element>a</a></code>, 和 <code id="other link types:the-area-element-6"><a href=image-maps.html#the-area-element>area</a></code>
+  元素。<a href=references.html#refsMFREL>[MFREL]</a></p>
+
+
+
+  <nav><a href=text-level-semantics.html>← 4.5 Text-level semantics</a> — <a href=./>Table of Contents</a> — <a href=edits.html>4.7 Edits →</a></nav>

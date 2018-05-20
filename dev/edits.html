@@ -1,0 +1,383 @@
+<!DOCTYPE html><html class=split lang=en-US-x-hixie><script src=/link-fixup.js defer=""></script><meta charset=utf-8><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name=viewport><title>HTML Standard, Developer's Edition</title><meta content=#3c790a name=theme-color><link rel=icon href=https://resources.whatwg.org/logo.svg><script>
+   function toggleStatus(div) {
+     div.parentNode.classList.toggle('wrapped');
+   }
+  </script><style>
+   .status { min-height: 0.6em; font: 1em sans-serif; width: 9em; padding: 0.3em; position: absolute; z-index: 8; right: 0.3em; background: #EEE; color: black; box-shadow: 0 0 3px #999; overflow: hidden; margin: -2em 0 0 0; border-collapse: initial; border-spacing: initial; }
+   .status:hover { z-index: 9; }
+   .status:focus-within { z-index: 9; }
+   .status.wrapped > :not(input) { display: none; }
+   .status > input { position: absolute; left: 0; top: 0; width: 1em; height: 1em; border: none; background: transparent; padding: 0; margin: 0; }
+   .status > p { font-size: 0.6em; margin: 0; padding: 0; }
+   .status > p + p { padding-top: 0.5em; }
+   .status > p > strong { margin-left: 1.5em; }
+   .status > .support { display: block; }
+   .status > .support > span { padding: 0.2em 0; display: block; display: table; }
+   .status > .support > span.partial { color: #666666; filter: grayscale(50%); }
+   .status > .support > span.no { color: #CCCCCC; filter: grayscale(100%); }
+   .status > .support > span.no::before { opacity: 0.5; }
+   .status > .support > span:first-of-type { padding-top: 0.5em; }
+   .status > .support > span > span { padding: 0 0.5em; display: table-cell; vertical-align: top; }
+   .status > .support > span > span:first-child { width: 100%; }
+   .status > .support > span > span:last-child { width: 100%; white-space: pre; padding: 0; }
+   .status > .support > span::before { content: ' '; display: table-cell; min-width: 1.5em; height: 1.5em; background: no-repeat center center; background-size: contain; text-align: right; font-size: 0.75em; font-weight: bold; }
+   .status > .support > .and_chr::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .and_ff::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .and_uc::before { background-image: url(https://resources.whatwg.org/browser-logos/uc.png); } /* UC Browser for Android */
+   .status > .support > .android::before { background-image: url(https://resources.whatwg.org/browser-logos/android.svg); }
+   .status > .support > .bb::before { background-image: url(https://resources.whatwg.org/browser-logos/bb.jpg); } /* Blackberry Browser */
+   .status > .support > .chrome::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+   .status > .support > .edge::before { background-image: url(https://resources.whatwg.org/browser-logos/edge.svg); }
+   .status > .support > .firefox::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+   .status > .support > .ie::before { background-image: url(https://resources.whatwg.org/browser-logos/ie.png); }
+   .status > .support > .ie_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/ie-mobile.svg); }
+   .status > .support > .ios_saf::before { background-image: url(https://resources.whatwg.org/browser-logos/safari-ios.svg); }
+   .status > .support > .op_mini::before { background-image: url(https://resources.whatwg.org/browser-logos/opera-mini.png); }
+   .status > .support > .op_mob::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .opera::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.png); }
+   .status > .support > .safari::before { background-image: url(https://resources.whatwg.org/browser-logos/safari.png); }
+   .status > .support > .samsung::before { background-image: url(https://resources.whatwg.org/browser-logos/samsung.png); }
+   .status > .caniuse { text-align: right; font-style: italic; width: 100%; }
+   .status > .caniuse + p { margin-top: 0.5em; border-top: 1px solid silver; }
+
+   @media (max-width: 767px) {
+     .status { right: -9em; }
+   }
+  </style><link rel=stylesheet href=styles.css><body>
+  <script async="" src=search.js></script>
+  
+  
+  <header id=head class="head with-buttons">
+   <a href=https://whatwg.org/ class=logo><img alt=WHATWG src=https://resources.whatwg.org/logo.svg width=100 height=100></a>
+   
+   <hgroup><h1><a rel=home href=/dev/>HTML: The Living Standard</a></h1><h2 id="developer's-edition-—-last-updated-date:-01-jan-1901" class="no-num no-toc">Developer's Edition — Last Updated <span class=pubdate>20 May 2018</span></h2><div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Thu Apr 27 2017 20:05:51 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/developers-edition-mdash-last-updated-date-01-jan-1901.zh.html></div></hgroup>
+   
+   <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-91053840-1', 'auto');
+      ga('send', 'pageview');
+   </script>
+  </header>
+
+  
+
+  
+
+  
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="Mon Dec 05 2016 02:34:08 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/table-of-contents.zh.html></div>
+  
+
+  
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Sat Jul 22 2017 01:54:48 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/full-table-of-contents.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/full-table-of-contents.zh.html></div>
+  
+
+  
+
+  
+
+  <h2 id=about-dev-edition class="no-num no-toc">关于本标准</h2>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="Sat Jul 22 2017 01:54:48 GMT+0800 (CST)" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/about-this-specification.en.html data-zh-file=https://github.com/whatwg-cn/html/edit/master/src/about-this-specification.zh.html></div>
+
+  <p>本标准与其他标准不同，它的处理完全考虑到了 Web 开发者。</p>
+
+  <p>本标准关注可读性和可访问性，不像 <a href=/multipage/>完整的 HTML 标准</a>，"开发者版本" 移除了
+  只有浏览器厂商需要知道的信息。它个版本是用我们的构建工具从完整的规范自动产出的，
+  因此总会与最新开发的 HTML 保持同步。</p>
+
+  <p>其概念、构造，以及未来可参考 <a href=http://web.archive.org/web/20150220020906/http://archive.germanforblack.com:80/articles/html5-for-web-developers>
+  原始出版发行</a>，以及 <a href=https://blog.whatwg.org/developers-edition-comeback>关于重启该版本的博文</a>。</p>
+
+  <p>最后，欢迎 <a href=https://github.com/whatwg/html/labels/dev%20edition>在 GitHub 贡献</a> 来改进该版本！</p>
+
+  
+
+  <nav><a href=links.html>← 4.6 Links</a> — <a href=./>Table of Contents</a> — <a href=embedded-content.html>4.8 嵌入内容 →</a></nav><ol class=toc><li><ol><li><a href=edits.html#edits><span class=secno>4.7</span> Edits</a><ol><li><a href=edits.html#the-ins-element><span class=secno>4.7.1</span> The <code>ins</code> element</a><li><a href=edits.html#the-del-element><span class=secno>4.7.2</span> The <code>del</code> element</a><li><a href=edits.html#attributes-common-to-ins-and-del-elements><span class=secno>4.7.3</span> Attributes common to <code>ins</code> and <code>del</code> elements</a><li><a href=edits.html#edits-and-paragraphs><span class=secno>4.7.4</span> Edits and paragraphs</a><li><a href=edits.html#edits-and-lists><span class=secno>4.7.5</span> Edits and lists</a><li><a href=edits.html#edits-and-tables><span class=secno>4.7.6</span> Edits and tables</a></ol></ol></ol><h3 id=edits><span class=secno>4.7</span> Edits<a href=#edits class=self-link></a></h3>
+<div data-en-date="Mon Jun 12 2017 23:29:06 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/edits/index.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/edits/index.zh.html?filename=index.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Fedits%2Findex.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <code id=edits:the-ins-element><a href=#the-ins-element>ins</a></code> and <code id=edits:the-del-element><a href=#the-del-element>del</a></code> elements represent edits to the document.</p>
+
+
+  <h4 id=the-ins-element><span class=secno>4.7.1</span> The <dfn><code>ins</code></dfn> element<a href=#the-ins-element class=self-link></a></h4>
+<div data-en-date="Mon Jul 03 2017 00:45:19 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/edits/the-ins-element.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/edits/the-ins-element.zh.html?filename=the-ins-element.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Fedits%2Fthe-ins-element.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <dl class=element><dt><a href=dom.html#concept-element-categories id=the-ins-element:concept-element-categories>Categories</a>:<dd><a id=the-ins-element:flow-content href=dom.html#flow-content>Flow content</a>.<dd><a id=the-ins-element:phrasing-content href=dom.html#phrasing-content>Phrasing content</a>.<dd><a id=the-ins-element:palpable-content-2 href=dom.html#palpable-content-2>Palpable content</a>.<dt><a href=dom.html#concept-element-contexts id=the-ins-element:concept-element-contexts>Contexts in which this element can be used</a>:<dd>Where <a id=the-ins-element:phrasing-content-2 href=dom.html#phrasing-content>phrasing content</a> is expected.<dt><a href=dom.html#concept-element-content-model id=the-ins-element:concept-element-content-model>Content model</a>:<dd><a id=the-ins-element:transparent href=dom.html#transparent>Transparent</a>.<dt><a href=dom.html#concept-element-tag-omission id=the-ins-element:concept-element-tag-omission>text/html 中的标签省略</a>：<dd>哪个标签都不能省略。<dt><a href=dom.html#concept-element-attributes id=the-ins-element:concept-element-attributes>Content attributes</a>:<dd><a id=the-ins-element:全局属性 href=dom.html#全局属性>Global attributes</a><dd><code id=the-ins-element:attr-mod-cite><a href=#attr-mod-cite>cite</a></code> — Link to the source of the quotation or more information about the edit<dd><code id=the-ins-element:attr-mod-datetime><a href=#attr-mod-datetime>datetime</a></code> — Date and (optionally) time of the change<dt><a href=dom.html#concept-element-dom id=the-ins-element:concept-element-dom>DOM interface</a>:<dd>Uses <code>HTMLModElement</code>.</dl>
+
+  <p>The <code id=the-ins-element:the-ins-element><a href=#the-ins-element>ins</a></code> element <a id=the-ins-element:represents href=dom.html#represents>represents</a> an addition to the document.</p>
+
+  <div class=example>
+
+   <p>The following represents the addition of a single paragraph:</p>
+
+   <pre>&lt;aside>
+ &lt;ins>
+  &lt;p> I like fruit. &lt;/p>
+ &lt;/ins>
+&lt;/aside></pre>
+
+   <p>As does the following, because everything in the <code id=the-ins-element:the-aside-element><a href=sections.html#the-aside-element>aside</a></code> element here counts as
+   <a id=the-ins-element:phrasing-content-3 href=dom.html#phrasing-content>phrasing content</a> and therefore there is just one <a id=the-ins-element:paragraph href=dom.html#paragraph>paragraph</a>:</p>
+
+   <pre>&lt;aside>
+ &lt;ins>
+  Apples are &lt;em>tasty&lt;/em>.
+ &lt;/ins>
+ &lt;ins>
+  So are pears.
+ &lt;/ins>
+&lt;/aside></pre>
+
+  </div>
+
+  <p><code id=the-ins-element:the-ins-element-2><a href=#the-ins-element>ins</a></code> elements should not cross <a href=dom.html#paragraph id=the-ins-element:paragraph-2>implied paragraph</a>
+  boundaries.</p>
+
+  <div class=example>
+
+   <p>The following example represents the addition of two paragraphs, the second of which was
+   inserted in two parts. The first <code id=the-ins-element:the-ins-element-3><a href=#the-ins-element>ins</a></code> element in this example thus crosses a
+   paragraph boundary, which is considered poor form.</p>
+
+   <pre class=bad>&lt;aside>
+ &lt;!-- don't do this -->
+ &lt;ins datetime="2005-03-16 00:00Z">
+  &lt;p> I like fruit. &lt;/p>
+  Apples are &lt;em>tasty&lt;/em>.
+ &lt;/ins>
+ &lt;ins datetime="2007-12-19 00:00Z">
+  So are pears.
+ &lt;/ins>
+&lt;/aside></pre>
+
+   <p>Here is a better way of marking this up. It uses more elements, but none of the elements cross
+   implied paragraph boundaries.</p>
+
+   <pre>&lt;aside>
+ &lt;ins datetime="2005-03-16 00:00Z">
+  &lt;p> I like fruit. &lt;/p>
+ &lt;/ins>
+ &lt;ins datetime="2005-03-16 00:00Z">
+  Apples are &lt;em>tasty&lt;/em>.
+ &lt;/ins>
+ &lt;ins datetime="2007-12-19 00:00Z">
+  So are pears.
+ &lt;/ins>
+&lt;/aside></pre>
+
+   
+
+  </div>
+
+
+  <h4 id=the-del-element><span class=secno>4.7.2</span> The <dfn><code>del</code></dfn> element<a href=#the-del-element class=self-link></a></h4>
+<div data-en-date="Mon Jul 03 2017 00:45:19 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/edits/the-del-element.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/edits/the-del-element.zh.html?filename=the-del-element.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Fedits%2Fthe-del-element.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <dl class=element><dt><a href=dom.html#concept-element-categories id=the-del-element:concept-element-categories>Categories</a>:<dd><a id=the-del-element:flow-content href=dom.html#flow-content>Flow content</a>.<dd><a id=the-del-element:phrasing-content href=dom.html#phrasing-content>Phrasing content</a>.<dt><a href=dom.html#concept-element-contexts id=the-del-element:concept-element-contexts>Contexts in which this element can be used</a>:<dd>Where <a id=the-del-element:phrasing-content-2 href=dom.html#phrasing-content>phrasing content</a> is expected.<dt><a href=dom.html#concept-element-content-model id=the-del-element:concept-element-content-model>Content model</a>:<dd><a id=the-del-element:transparent href=dom.html#transparent>Transparent</a>.<dt><a href=dom.html#concept-element-tag-omission id=the-del-element:concept-element-tag-omission>text/html 中的标签省略</a>：<dd>哪个标签都不能省略。<dt><a href=dom.html#concept-element-attributes id=the-del-element:concept-element-attributes>Content attributes</a>:<dd><a id=the-del-element:全局属性 href=dom.html#全局属性>Global attributes</a><dd><code id=the-del-element:attr-mod-cite><a href=#attr-mod-cite>cite</a></code> — Link to the source of the quotation or more information about the edit<dd><code id=the-del-element:attr-mod-datetime><a href=#attr-mod-datetime>datetime</a></code> — Date and (optionally) time of the change<dt><a href=dom.html#concept-element-dom id=the-del-element:concept-element-dom>DOM interface</a>:<dd>Uses <code>HTMLModElement</code>.</dl>
+
+  <p>The <code id=the-del-element:the-del-element><a href=#the-del-element>del</a></code> element <a id=the-del-element:represents href=dom.html#represents>represents</a> a removal from the document.</p>
+
+  <p><code id=the-del-element:the-del-element-2><a href=#the-del-element>del</a></code> elements should not cross <a href=dom.html#paragraph id=the-del-element:paragraph>implied paragraph</a>
+  boundaries.</p>
+
+  <div class=example>
+
+   <p>The following shows a "to do" list where items that have been done are crossed-off with the
+   date and time of their completion.</p>
+
+   <pre>&lt;h1>To Do&lt;/h1>
+&lt;ul>
+ &lt;li>Empty the dishwasher&lt;/li>
+ &lt;li>&lt;del datetime="2009-10-11T01:25-07:00">Watch Walter Lewin's lectures&lt;/del>&lt;/li>
+ &lt;li>&lt;del datetime="2009-10-10T23:38-07:00">Download more tracks&lt;/del>&lt;/li>
+ &lt;li>Buy a printer&lt;/li>
+&lt;/ul></pre>
+
+  </div>
+
+
+
+  <h4 id=attributes-common-to-ins-and-del-elements><span class=secno>4.7.3</span> Attributes common to <code id=attributes-common-to-ins-and-del-elements:the-ins-element><a href=#the-ins-element>ins</a></code> and <code id=attributes-common-to-ins-and-del-elements:the-del-element><a href=#the-del-element>del</a></code> elements<a href=#attributes-common-to-ins-and-del-elements class=self-link></a></h4>
+<div data-en-date="Wed Feb 07 2018 23:15:40 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/edits/attributes-common-to-ins-and-del-elements.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/edits/attributes-common-to-ins-and-del-elements.zh.html?filename=attributes-common-to-ins-and-del-elements.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Fedits%2Fattributes-common-to-ins-and-del-elements.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  <p>The <dfn id=attr-mod-cite><code>cite</code></dfn> attribute may be used to specify the
+  <a href=https://dom.spec.whatwg.org/#concept-document-url id=attributes-common-to-ins-and-del-elements:the-document的-address data-x-internal=the-document的-address>URL</a> of a document that explains the change. When that
+  document is long, for instance the minutes of a meeting, authors are encouraged to include a <a href=https://url.spec.whatwg.org/#concept-url-fragment id=attributes-common-to-ins-and-del-elements:concept-url-fragment data-x-internal=concept-url-fragment>fragment</a> pointing to the specific part of that document that
+  discusses the change.</p>
+
+  <p>If the <code id=attributes-common-to-ins-and-del-elements:attr-mod-cite><a href=#attr-mod-cite>cite</a></code> attribute is present, it must be a <a id=attributes-common-to-ins-and-del-elements:valid-url-potentially-surrounded-by-spaces href=infrastructure.html#valid-url-potentially-surrounded-by-spaces>valid
+  URL potentially surrounded by spaces</a> that explains the change.  User agents may
+  allow users to follow such citation links, but they are primarily intended for private use (e.g.,
+  by server-side scripts collecting statistics about a site's edits), not for readers.</p>
+
+
+  <p>The <dfn id=attr-mod-datetime><code>datetime</code></dfn> attribute may be used to specify
+  the time and date of the change.</p>
+
+  <p>If present, the <code id=attributes-common-to-ins-and-del-elements:attr-mod-datetime><a href=#attr-mod-datetime>datetime</a></code> attribute's value must be a
+  <a id=attributes-common-to-ins-and-del-elements:valid-date-string-with-optional-time href=infrastructure.html#valid-date-string-with-optional-time>valid date string with optional time</a>.</p>
+
+  
+
+  <p>This value  is primarily intended for
+  private use.</p>
+
+  
+
+
+
+  <h4 id=edits-and-paragraphs><span class=secno>4.7.4</span> Edits and paragraphs<a href=#edits-and-paragraphs class=self-link></a></h4>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/edits/edits-and-paragraphs.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/edits/edits-and-paragraphs.zh.html?filename=edits-and-paragraphs.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Fedits%2Fedits-and-paragraphs.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <p>Since the <code id=edits-and-paragraphs:the-ins-element><a href=#the-ins-element>ins</a></code> and <code id=edits-and-paragraphs:the-del-element><a href=#the-del-element>del</a></code> elements do not affect <a href=dom.html#paragraph id=edits-and-paragraphs:paragraph>paragraphing</a>, it is possible, in some cases where paragraphs are <a href=dom.html#paragraph id=edits-and-paragraphs:paragraph-2>implied</a> (without explicit <code id=edits-and-paragraphs:the-p-element><a href=grouping-content.html#the-p-element>p</a></code> elements), for an
+  <code id=edits-and-paragraphs:the-ins-element-2><a href=#the-ins-element>ins</a></code> or <code id=edits-and-paragraphs:the-del-element-2><a href=#the-del-element>del</a></code> element to span both an entire paragraph or other
+  non-<a id=edits-and-paragraphs:phrasing-content href=dom.html#phrasing-content>phrasing content</a> elements and part of another paragraph. For example:</p>
+
+  <pre>&lt;section>
+ &lt;ins>
+  &lt;p>
+   This is a paragraph that was inserted.
+  &lt;/p>
+  This is another paragraph whose first sentence was inserted
+  at the same time as the paragraph above.
+ &lt;/ins>
+ This is a second sentence, which was there all along.
+&lt;/section></pre>
+
+  <p>By only wrapping some paragraphs in <code id=edits-and-paragraphs:the-p-element-2><a href=grouping-content.html#the-p-element>p</a></code> elements, one can even get the end of one
+  paragraph, a whole second paragraph, and the start of a third paragraph to be covered by the same
+  <code id=edits-and-paragraphs:the-ins-element-3><a href=#the-ins-element>ins</a></code> or <code id=edits-and-paragraphs:the-del-element-3><a href=#the-del-element>del</a></code> element (though this is very confusing, and not considered
+  good practice):</p>
+
+  <pre class=bad>&lt;section>
+ This is the first paragraph. &lt;ins>This sentence was
+ inserted.
+ &lt;p>This second paragraph was inserted.&lt;/p>
+ This sentence was inserted too.&lt;/ins> This is the
+ third paragraph in this example.
+ &lt;!-- (don't do this) -->
+&lt;/section></pre>
+
+  <p>However, due to the way <a href=dom.html#paragraph id=edits-and-paragraphs:paragraph-3>implied paragraphs</a> are defined, it is
+  not possible to mark up the end of one paragraph and the start of the very next one using the same
+  <code id=edits-and-paragraphs:the-ins-element-4><a href=#the-ins-element>ins</a></code> or <code id=edits-and-paragraphs:the-del-element-4><a href=#the-del-element>del</a></code> element. You instead have to use one (or two) <code id=edits-and-paragraphs:the-p-element-3><a href=grouping-content.html#the-p-element>p</a></code>
+  element(s) and two <code id=edits-and-paragraphs:the-ins-element-5><a href=#the-ins-element>ins</a></code> or <code id=edits-and-paragraphs:the-del-element-5><a href=#the-del-element>del</a></code> elements, as for example:</p>
+
+  <pre>&lt;section>
+ &lt;p>This is the first paragraph. &lt;del>This sentence was
+ deleted.&lt;/del>&lt;/p>
+ &lt;p>&lt;del>This sentence was deleted too.&lt;/del> That
+ sentence needed a separate &amp;lt;del&amp;gt; element.&lt;/p>
+&lt;/section></pre>
+
+  <p>Partly because of the confusion described above, authors are strongly encouraged to always mark
+  up all paragraphs with the <code id=edits-and-paragraphs:the-p-element-4><a href=grouping-content.html#the-p-element>p</a></code> element, instead of having <code id=edits-and-paragraphs:the-ins-element-6><a href=#the-ins-element>ins</a></code> or
+  <code id=edits-and-paragraphs:the-del-element-6><a href=#the-del-element>del</a></code> elements that cross <a href=dom.html#paragraph id=edits-and-paragraphs:paragraph-4>implied paragraphs</a>
+  boundaries.</p>
+
+
+  <h4 id=edits-and-lists><span class=secno>4.7.5</span> Edits and lists<a href=#edits-and-lists class=self-link></a></h4>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/edits/edits-and-lists.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/edits/edits-and-lists.zh.html?filename=edits-and-lists.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Fedits%2Fedits-and-lists.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <p>The content models of the <code id=edits-and-lists:the-ol-element><a href=grouping-content.html#the-ol-element>ol</a></code> and <code id=edits-and-lists:the-ul-element><a href=grouping-content.html#the-ul-element>ul</a></code> elements do not allow
+  <code id=edits-and-lists:the-ins-element><a href=#the-ins-element>ins</a></code> and <code id=edits-and-lists:the-del-element><a href=#the-del-element>del</a></code> elements as children. Lists always represent all their
+  items, including items that would otherwise have been marked as deleted.</p>
+
+  <p>To indicate that an item is inserted or deleted, an <code id=edits-and-lists:the-ins-element-2><a href=#the-ins-element>ins</a></code> or <code id=edits-and-lists:the-del-element-2><a href=#the-del-element>del</a></code>
+  element can be wrapped around the contents of the <code id=edits-and-lists:the-li-element><a href=grouping-content.html#the-li-element>li</a></code> element. To indicate that an
+  item has been replaced by another, a single <code id=edits-and-lists:the-li-element-2><a href=grouping-content.html#the-li-element>li</a></code> element can have one or more
+  <code id=edits-and-lists:the-del-element-3><a href=#the-del-element>del</a></code> elements followed by one or more <code id=edits-and-lists:the-ins-element-3><a href=#the-ins-element>ins</a></code> elements.</p>
+
+  <div class=example>
+
+   <p>In the following example, a list that started empty had items added and removed from it over
+   time. The bits in the example that have been emphasized show the parts that are the "current"
+   state of the list. The list item numbers don't take into account the edits, though.</p>
+
+   <pre>&lt;h1>Stop-ship bugs&lt;/h1>
+&lt;ol>
+ &lt;li>&lt;ins datetime="2008-02-12T15:20Z"><em>Bug 225:
+ Rain detector doesn't work in snow</em>&lt;/ins>&lt;/li>
+ &lt;li>&lt;del datetime="2008-03-01T20:22Z">&lt;ins datetime="2008-02-14T12:02Z">Bug 228:
+ Water buffer overflows in April&lt;/ins>&lt;/del>&lt;/li>
+ &lt;li>&lt;ins datetime="2008-02-16T13:50Z"><em>Bug 230:
+ Water heater doesn't use renewable fuels</em>&lt;/ins>&lt;/li>
+ &lt;li>&lt;del datetime="2008-02-20T21:15Z">&lt;ins datetime="2008-02-16T14:25Z">Bug 232:
+ Carbon dioxide emissions detected after startup&lt;/ins>&lt;/del>&lt;/li>
+&lt;/ol></pre>
+
+  </div>
+
+  <div class=example>
+
+   <p>In the following example, a list that started with just fruit was replaced by a list with just
+   colors.</p>
+
+   <pre>&lt;h1>List of &lt;del>fruits&lt;/del>&lt;ins>colors&lt;/ins>&lt;/h1>
+&lt;ul>
+ &lt;li>&lt;del>Lime&lt;/del>&lt;ins>Green&lt;/ins>&lt;/li>
+ &lt;li>&lt;del>Apple&lt;/del>&lt;/li>
+ &lt;li>Orange&lt;/li>
+ &lt;li>&lt;del>Pear&lt;/del>&lt;/li>
+ &lt;li>&lt;ins>Teal&lt;/ins>&lt;/li>
+ &lt;li>&lt;del>Lemon&lt;/del>&lt;ins>Yellow&lt;/ins>&lt;/li>
+ &lt;li>Olive&lt;/li>
+ &lt;li>&lt;ins>Purple&lt;/ins>&lt;/li>
+&lt;/ul></pre>
+
+  </div>
+
+
+  <h4 id=edits-and-tables><span class=secno>4.7.6</span> Edits and tables<a href=#edits-and-tables class=self-link></a></h4>
+<div data-en-date="Mon Dec 05 2016 01:06:08 GMT+0800 (CST)" class=translate-info data-zh-date="" data-en-file=https://github.com/whatwg-cn/html/blob/master/src/the-elements-of-html/edits/edits-and-tables.en.html data-zh-file="https://github.com/whatwg-cn/html/new/master/src/the-elements-of-html/edits/edits-and-tables.zh.html?filename=edits-and-tables.zh.html&amp;value=%E4%BB%8E%20https%3A%2F%2Fgithub.com%2Fwhatwg-cn%2Fhtml%2Fblob%2Fmaster%2Fsrc%2Fthe-elements-of-html%2Fedits%2Fedits-and-tables.en.html%20%E6%8B%B7%E8%B4%9D%E8%8B%B1%E6%96%87%E6%BA%90%E7%A0%81%E8%87%B3%E6%AD%A4%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BF%BB%E8%AF%91"></div>
+
+  
+
+  <p>The elements that form part of the table model have complicated content model requirements that
+  do not allow for the <code id=edits-and-tables:the-ins-element><a href=#the-ins-element>ins</a></code> and <code id=edits-and-tables:the-del-element><a href=#the-del-element>del</a></code> elements, so indicating edits to a
+  table can be difficult.</p>
+
+  <p>To indicate that an entire row or an entire column has been added or removed, the entire
+  contents of each cell in that row or column can be wrapped in <code id=edits-and-tables:the-ins-element-2><a href=#the-ins-element>ins</a></code> or <code id=edits-and-tables:the-del-element-2><a href=#the-del-element>del</a></code>
+  elements (respectively).</p>
+
+  <div class=example>
+
+   <p>Here, a table's row has been added:</p>
+
+   <pre>&lt;table>
+ &lt;thead>
+  &lt;tr> &lt;th> Game name           &lt;th> Game publisher   &lt;th> Verdict
+ &lt;tbody>
+  &lt;tr> &lt;td> Diablo 2            &lt;td> Blizzard         &lt;td> 8/10
+  &lt;tr> &lt;td> Portal              &lt;td> Valve            &lt;td> 10/10
+<strong>  &lt;tr> &lt;td> &lt;ins>Portal 2&lt;/ins> &lt;td> &lt;ins>Valve&lt;/ins> &lt;td> &lt;ins>10/10&lt;/ins></strong>
+&lt;/table></pre>
+
+   <p>Here, a column has been removed (the time at which it was removed is given also, as is a link
+   to the page explaining why):</p>
+
+   <pre>&lt;table>
+ &lt;thead>
+  &lt;tr> &lt;th> Game name           &lt;th> Game publisher   &lt;th> <strong>&lt;del cite="/edits/r192" datetime="2011-05-02 14:23Z">Verdict&lt;/del></strong>
+ &lt;tbody>
+  &lt;tr> &lt;td> Diablo 2            &lt;td> Blizzard         &lt;td> <strong>&lt;del cite="/edits/r192" datetime="2011-05-02 14:23Z">8/10&lt;/del></strong>
+  &lt;tr> &lt;td> Portal              &lt;td> Valve            &lt;td> <strong>&lt;del cite="/edits/r192" datetime="2011-05-02 14:23Z">10/10&lt;/del></strong>
+  &lt;tr> &lt;td> Portal 2            &lt;td> Valve            &lt;td> <strong>&lt;del cite="/edits/r192" datetime="2011-05-02 14:23Z">10/10&lt;/del></strong>
+&lt;/table></pre>
+
+  </div>
+
+  <p>Generally speaking, there is no good way to indicate more complicated edits (e.g. that a cell
+  was removed, moving all subsequent cells up or to the left).</p>
+
+
+
+
+  <nav><a href=links.html>← 4.6 Links</a> — <a href=./>Table of Contents</a> — <a href=embedded-content.html>4.8 嵌入内容 →</a></nav>
